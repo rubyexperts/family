@@ -1,15 +1,20 @@
 Family::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   resources :users
+  resources :home
   
-  #match 'users/:id/edit', :to => 'devise/registrations#edit'
-  
-   # redirection after sign_up page
+  # redirection after sign_up page
   namespace :user do
     root :to => "home#index"
-  end
- 
+  end  
+  
+  match '/patients' => 'home#patients', :as => :patients
+  match '/doctors' => 'home#doctors', :as => :doctors
+  match '/admin' => 'home#admin', :as => :admin
+  match '/staff' => 'home#staff', :as => :staff
+  match '/company' => 'home#company', :as => :company
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
