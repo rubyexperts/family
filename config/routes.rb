@@ -1,5 +1,6 @@
 Family::Application.routes.draw do
 
+  resources :uploads
   devise_for :users, :controllers => { :registrations => "registrations" }
   resources :users
   resources :home
