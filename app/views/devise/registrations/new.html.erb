@@ -10,11 +10,10 @@
   <%= f.password_field :password %></div>
 
   <div><%= f.label :password_confirmation %><br />
-       <%= f.password_field :password_confirmation %></div>
-         
+       <%= f.password_field :password_confirmation %></div>         
   <div>
-     <%= f.label :roles %><br />
-     <%= f.select :roles, options_for_select(%w(Admin Doctor Patient Staff Company)) %>
+     <%= f.label :type %><br />
+     <%= f.select :type, options_for_select(%w(Admin Doctor Patient Staff Company)) %>
   </div> <br />
   
   <div><%= f.submit "Sign up" %></div>

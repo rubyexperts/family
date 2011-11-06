@@ -1,34 +1,31 @@
 class User < ActiveRecord::Base
 
-  #serialize :roles
-   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable #, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable #, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :roles  
-    
+  attr_accessible :email, :type, :password, :password_confirmation, :remember_me
+  
   def is_admin?
-    self.roles == "Admin"
+  self.type == "Admin"
   end
-  
+
   def is_doctor?
-    self.roles == "Doctor"
+  self.type == "Doctor"
   end
-  
+
   def is_patient?
-    self.roles == "Patient"
+  self.type == "Patient"
   end
-  
+
   def is_staff?
-    self.roles == "Staff"
+  self.type == "Staff"
   end
-  
+
   def is_company?
-    self.roles == "Company"
+  self.type == "Company"
   end
-  
+
   
 end
