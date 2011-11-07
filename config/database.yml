@@ -1,9 +1,10 @@
 
+
 development:
   adapter: mysql
   port: 3307
   encoding: utf8
   database: family_development
-  username: root
-  password: 
+  username: dipin
+  password: dipin
   host: localhost
