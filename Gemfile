@@ -9,6 +9,8 @@ gem 'sqlite3'
 gem 'mysql'
 gem 'devise', '1.4.5'
 
+gem 'carrierwave'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

@@ -1,11 +1,10 @@
 Family::Application.routes.draw do
-
+  resources :uploads
   devise_for :users, :controllers => { :registrations => "registrations" }
   devise_for :doctors
   devise_for :admin
   devise_for :patients
   devise_for :companies
-
   resources :users
   resources :home
   resources :patients
