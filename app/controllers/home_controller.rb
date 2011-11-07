@@ -14,7 +14,7 @@ class HomeController < ApplicationController
       redirect_to "/staff"
     elsif current_user.is_company?
       redirect_to "/company"
-    end   
+    end
   end
   
   def admin
