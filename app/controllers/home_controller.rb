@@ -20,11 +20,15 @@ class HomeController < ApplicationController
   def admin
   end
   
+  def update
+    raise "FFFF".inspect
+  end
+  
   def doctors
   end
   
-  def patients
-  end
+ # def patients
+ # end
   
   def staff
   end

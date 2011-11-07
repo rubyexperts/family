@@ -10,7 +10,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111106174107) do
+ActiveRecord::Schema.define(:version => 20111107150006) do
+
+  create_table "uploads", :force => true do |t|
+    t.string   "my_file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_details", :force => true do |t|
+    t.integer  "user_id"
+    t.date     "date_of_birth"
+    t.text     "postal_address"
+    t.string   "marital_status"
+    t.string   "occupation"
+    t.string   "emergency_contact_name"
+    t.string   "emergency_contact_relation"
+    t.string   "emergency_contact_address"
+    t.string   "emergency_contact_phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
@@ -40,10 +61,5 @@ ActiveRecord::Schema.define(:version => 20111106174107) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-  create_table "uploads", :force => true do |t|
-    t.string   "my_file"
-    t.datetime "created_at"
-    t.datetime "updated_at"
- end
 
 end
