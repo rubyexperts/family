@@ -15,7 +15,8 @@ class PatientsController < ApplicationController
      @user = User.find(params[:id])
    end
    
-   def update     
+   def update
+   raise params.inspect
      @user = User.find(params[:id])
      if @user.update_attributes(params[:patient])
         puts "------------".inspect

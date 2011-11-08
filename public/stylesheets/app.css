@@ -1,18 +1,9 @@
 
 
 
-
-
- /* Pop Up Window CSS #3399FF */
-.main{ margin: 10; float:center;}
-.loc{ margin:0; color:#339900; height:auto; width:auto; font-family:Tahoma; padding-top:3px; }
-.temp{ margin:0; color:#339900; height:auto; width:auto; font-family:Tahoma; padding-top:1px; }
-.logo { margin:0; height:auto; width:100px; }
-img.header {float:left; clear:right; margin-right:50px;}
-.change-link{color:#3399FF;text-decoration:none;}
-.line-separator{clear:both; height:2px;font-size: 1px;line-height: 5px;}
-
 .clear{clear:both; height:0;font-size: 1px;line-height: 0px;}
+
+.patient-form{list-style:none;}
 
 #header {
     background: none repeat scroll 0 0 transparent !important;
