@@ -1,15 +1,16 @@
 Family::Application.routes.draw do
-  resources :patient_images
 
+  resources :patient_images
+  resources :appointments
   resources :uploads
   devise_for :users
-  devise_for :doctors
-  devise_for :admin
-  devise_for :patients
-  devise_for :companies
+  #devise_for :doctors
+  #devise_for :admin
+  #devise_for :patients
+  #devise_for :companies
   resources :users
   resources :home
-  resources :patients
+  #resources :patients
   
   # redirection after sign_up page
   namespace :user do

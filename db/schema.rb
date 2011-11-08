@@ -10,7 +10,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20111108183143) do
+=======
+ActiveRecord::Schema.define(:version => 20111107172917) do
+>>>>>>> 76adc0b334d803fe73388804a9c7e949bf95e289
 
   create_table "patient_images", :force => true do |t|
     t.string   "image"
@@ -21,6 +25,13 @@ ActiveRecord::Schema.define(:version => 20111108183143) do
 
   create_table "uploads", :force => true do |t|
     t.string   "my_file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_details", :force => true do |t|
+    t.string   "native_place"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

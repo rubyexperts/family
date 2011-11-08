@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Networking</title>
+  <title>Patient</title>
   <%= stylesheet_link_tag :all, 'app' %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>  
@@ -23,9 +23,7 @@
                      
                    <div class="headernav">                      
                        <div class="item profile <% if @select == "profile" %> active <% end %>">
-                          <%= link_to "Home",doctors_path%>
-                          <%= link_to "Upload Documents",new_upload_path%>
-                          <%= link_to "Appointments",appointments_path%>
+                          <a class="console" href="<%= user_path(current_user) %>">Profile</a>
                        </div>
                    </div>
                   
