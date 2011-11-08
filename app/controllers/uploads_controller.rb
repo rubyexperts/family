@@ -1,6 +1,10 @@
 class UploadsController < ApplicationController
   # GET /uploads
   # GET /uploads.xml
+  
+  before_filter :authenticate_user!
+  layout 'default'
+  
   def index
     @uploads = Upload.all
 
