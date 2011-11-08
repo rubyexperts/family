@@ -1,8 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
- 
-     prepend_view_path "app/views/devise"
+  prepend_view_path "app/views/devise"
 	 
-     def new
+    def new
 	   super
 	 end
 	 

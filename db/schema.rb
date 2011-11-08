@@ -10,15 +10,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111106174956) do
+ActiveRecord::Schema.define(:version => 20111108183143) do
 
-  create_table "appointments", :force => true do |t|
-    t.integer  "doctor_id"
+  create_table "patient_images", :force => true do |t|
+    t.string   "image"
     t.integer  "patient_id"
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.string   "hosiptal_name"
-    t.string   "purpose"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
