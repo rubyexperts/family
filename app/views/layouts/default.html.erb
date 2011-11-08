@@ -23,7 +23,8 @@
                      
                    <div class="headernav">                      
                        <div class="item profile <% if @select == "profile" %> active <% end %>">
-                          <a class="console" href="<%= user_path(current_user) %>">Profile</a>
+                          <%= link_to "Upload Documents",new_upload_path%>
+                          <%= link_to "Appointments",new_upload_path%>
                        </div>
                    </div>
                   

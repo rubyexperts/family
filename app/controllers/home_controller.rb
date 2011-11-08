@@ -27,9 +27,10 @@ class HomeController < ApplicationController
   def doctors
   end
 
-  layout 'patient'
+ 
 
   def patients
+     layout 'patient'
   end
   
   def staff
