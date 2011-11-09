@@ -26,11 +26,6 @@ class HomeController < ApplicationController
   
   def doctors
   end
-
- 
-
-  def patients
-  end
   
   def staff
   end

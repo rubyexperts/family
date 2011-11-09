@@ -10,14 +10,13 @@ Family::Application.routes.draw do
   #devise_for :companies
   resources :users
   resources :home
-  #resources :patients
+  resources :patients
   
   # redirection after sign_up page
   namespace :user do
     root :to => "home#index"
-  end
-  
-  match '/patients' => 'home#patients', :as => :patients
+  end  
+ 
   match '/doctors' => 'home#doctors', :as => :doctors
   match '/admin' => 'home#admin', :as => :admin
   match '/staff' => 'home#staff', :as => :staff
