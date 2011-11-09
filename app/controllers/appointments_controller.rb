@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.xml
-  layout 'default'
+  
   def index
     @appointments = Appointment.all
 

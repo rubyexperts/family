@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
   before_filter :authenticate_user!
   
-   layout 'default'
+ 
   def index
     if current_user.is_admin?
       redirect_to "/admin"
@@ -30,7 +30,6 @@ class HomeController < ApplicationController
  
 
   def patients
-     layout 'patient'
   end
   
   def staff
