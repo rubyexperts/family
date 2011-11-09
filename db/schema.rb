@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111108183143) do
+ActiveRecord::Schema.define(:version => 20111109174034) do
 
   create_table "appointments", :force => true do |t|
     t.integer  "doctor_id"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20111108183143) do
     t.string   "mobile_number"
     t.string   "office_number"
     t.string   "company_name"
+    t.integer  "master_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
