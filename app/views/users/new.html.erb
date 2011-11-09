@@ -1,0 +1,36 @@
+<h2>New Master Account</h2>
+
+<%= form_for @user do |f| %>
+
+    <%#= devise_error_messages! %>
+    <%#= error_messages! %>
+  
+   <ul class="patient-form">
+
+      <li>   
+           <%= f.label :email %>
+           <%= f.email_field :email %>
+      </li>
+
+       <li>
+           <%= f.label :password %>
+           <%= f.password_field :password %>
+       </li>
+
+       <li>
+           <%= f.label :password_confirmation %>
+           <%= f.password_field :password_confirmation %>
+       </li>
+       
+       <li>
+          <%= f.label :type %><br />
+          <%= f.select :type, options_for_select(%w(Doctor Patient Staff Company)) %>
+       </li> 
+     
+    </ul>
+  
+      <div><%= f.submit "Sign up" %></div>
+  
+<% end %>
+
+<%#= render :partial => "devise/shared/links" %>

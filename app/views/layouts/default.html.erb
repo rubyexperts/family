@@ -23,15 +23,18 @@
                     </ul> 
               </div>
 
-                  <div class="console_header">                       
+                  <div class="console_header">
                   </div>
                      
-                   <div class="headernav">                      
+                   <div class="headernav">
                        <div class="item profile <% if @select == "profile" %> active <% end %>">
-                          <%= link_to "Home",doctors_path%>
+                          <%= link_to "Home",doctors_path %>
                           <%= link_to "Upload Documents",new_upload_path%>
                           <%= link_to "Appointments",appointments_path%>
-                          <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+                          <% if current_user.is_doctor? %>
+                             <%= link_to "Create Master Account", new_user_path %>
+                          <% end %>
+                          <%#= link_to "Logout", destroy_user_session_path, :method => :delete %>
                        </div>
                    </div>
                   
