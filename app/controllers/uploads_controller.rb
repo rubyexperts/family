@@ -39,7 +39,9 @@ class UploadsController < ApplicationController
   def edit
     @upload = Upload.find(params[:id])
   end
-
+  #def download
+   #send_file "#{Rails.root}/public/uploads/upload/my_file/6/NelloreToHyd.pdf"
+  #end
   # POST /uploads
   # POST /uploads.xml
   def create

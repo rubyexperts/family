@@ -10,7 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111108040248) do
+<<<<<<< HEAD
+ActiveRecord::Schema.define(:version => 20111108183143) do
+=======
+ActiveRecord::Schema.define(:version => 20111107172917) do
+>>>>>>> 76adc0b334d803fe73388804a9c7e949bf95e289
+
+  create_table "patient_images", :force => true do |t|
+    t.string   "image"
+    t.integer  "patient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "uploads", :force => true do |t|
     t.string   "my_file"
@@ -19,15 +30,8 @@ ActiveRecord::Schema.define(:version => 20111108040248) do
   end
 
   create_table "user_details", :force => true do |t|
+    t.string   "native_place"
     t.integer  "user_id"
-    t.datetime "date_of_birth"
-    t.text     "postal_address"
-    t.string   "marital_status"
-    t.string   "occupation"
-    t.string   "emergency_contact_name"
-    t.string   "emergency_contact_relation"
-    t.string   "emergency_contact_address"
-    t.string   "emergency_contact_phone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
