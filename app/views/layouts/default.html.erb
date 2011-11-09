@@ -11,14 +11,12 @@
      <div id="content"><!-- Wraps everything -->
           <div id="header"><!--The Header -->          
               <div class="page-width">
-              
+             
+ 
                   <h1> Family Practice </h1>
-                  <div id="user-cp"> <!--User Control Panel -->
-                       <p class="welcome">Welcome <em><%= current_user.email %></em></p>
-                                                  
-                           
-                       
-                  </div> 
+                  
+			 <% if user_signed_in? %>          <div id="user-cp"> <!--User Control Panel -->           <p class="welcome">Welcome <em><%= current_user.email %></em></p>           <ul>                <li>&nbsp;<%= link_to "Logout", destroy_user_session_path %></li>           </ul>      </div>
+
                   <div class="console_header">                       
                   </div>
                      
@@ -34,7 +32,7 @@
               </div>
          </div>
     </div>
-    
+<% end %>    
 <body> 
 <%= yield %>
 

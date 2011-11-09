@@ -6,7 +6,7 @@ Family::Application.routes.draw do
   devise_for :users
   #devise_for :doctors
   #devise_for :admin
-  #devise_for :patients
+ devise_for :patients
   #devise_for :companies
   resources :users
   resources :home
