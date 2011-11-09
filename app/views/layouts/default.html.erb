@@ -15,9 +15,9 @@
                   <h1> Family Practice </h1>
                   <div id="user-cp"> <!--User Control Panel -->
                        <p class="welcome">Welcome <em><%= current_user.email %></em></p>
-                       <ul>                           
-                           <li>&nbsp;<%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
-                       </ul>
+                                                  
+                           
+                       
                   </div> 
                   <div class="console_header">                       
                   </div>
@@ -27,6 +27,7 @@
                           <%= link_to "Home",doctors_path%>
                           <%= link_to "Upload Documents",new_upload_path%>
                           <%= link_to "Appointments",appointments_path%>
+                         <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
                        </div>
                    </div>
                   
