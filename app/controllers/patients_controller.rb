@@ -16,10 +16,13 @@ class PatientsController < ApplicationController
    end
    
    def update
-   raise params.inspect
      @user = User.find(params[:id])
-     if @user.update_attributes(params[:patient])
-        puts "------------".inspect
+     @user.attributes = params[:patient]
+     @user_detail = UserDetail.new(params[:user_detail])
+     if @user.valid? && @user_detail.valid?
+        @user_detail.user_id = @user.id
+        @user.save && @user_detail.save
+        redirect_to :action => "index"
      else
        render :edit
      end
