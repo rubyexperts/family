@@ -12,12 +12,9 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :doctor_id %><br />
-    <%= f.text_field :doctor_id %>
-  </div>
-  <div class="field">
-    <%= f.label :patient_id %><br />
-    <%= f.text_field :patient_id %>
+    <% @doctors=Doctor.all(:select=>['id, first_name,last_name'])%>
+    <%= f.label "select Doctor" %><br />
+    <%=collection_select(:appointment, :doctor_id, @doctors, :id, :first_name, {:prompt => true}) %></div>
   </div>
   <div class="field">
     <%= f.label :start_time %><br />

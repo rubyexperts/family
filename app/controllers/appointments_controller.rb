@@ -4,8 +4,11 @@ class AppointmentsController < ApplicationController
   before_filter :selected_tab
   
   def index
-    @appointments = Appointment.all
-
+    if current_user.is_patient?
+    @appointments = Appointment.where('patient_id= ? ',current_user.id)
+    elsif current_user.is_doctor?
+     @appointments= Appointment.where('doctor_id= ? ',current_user.id)
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @appointments }
@@ -27,7 +30,6 @@ class AppointmentsController < ApplicationController
   # GET /appointments/new.xml
   def new
     @appointment = Appointment.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @appointment }
@@ -43,7 +45,7 @@ class AppointmentsController < ApplicationController
   # POST /appointments.xml
   def create
     @appointment = Appointment.new(params[:appointment])
-
+    @appointment.patient_id=current_user.id  if current_user.is_patient?
     respond_to do |format|
       if @appointment.save
         format.html { redirect_to(@appointment, :notice => 'Appointment was successfully created.') }
