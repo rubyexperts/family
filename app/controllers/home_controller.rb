@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 
   before_filter :authenticate_user!
+  before_filter :selected_tab
   
  
   def index
@@ -31,6 +32,13 @@ class HomeController < ApplicationController
   end
   
   def company
+  end
+  
+  
+  private
+  
+  def selected_tab
+    @select =  "home"
   end
    
 

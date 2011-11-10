@@ -3,6 +3,7 @@ class UploadsController < ApplicationController
   # GET /uploads.xml
   
   before_filter :authenticate_user!
+  before_filter :selected_tab
   layout 'default'
   
   def index
@@ -85,4 +86,11 @@ class UploadsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+  
+  def selected_tab
+    @select = "upload"
+  end
+  
 end

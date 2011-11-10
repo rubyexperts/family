@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.xml
+  before_filter :selected_tab
   
   def index
     @appointments = Appointment.all
@@ -81,4 +82,11 @@ class AppointmentsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+  
+  def selected_tab
+    @select = "appointment"
+  end
+  
 end

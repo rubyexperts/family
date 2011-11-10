@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
    before_filter :authenticate_user!
-   layout 'default'
+   before_filter :selected_tab
+   layout 'default'   
    
    def index
    end
@@ -19,6 +20,12 @@ class UsersController < ApplicationController
      else
        render :new
      end
+   end
+   
+   private
+   
+   def selected_tab
+     @select = "admin"
    end
 
   
