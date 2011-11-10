@@ -9,6 +9,10 @@ Family::Application.routes.draw do
  
  ###### Main Routes #######
   
+ # namespace :admin do
+  #  resources :users # Have the admin manage them here.
+ # end
+  
   resources :users
   resources :home
   resources :patients
@@ -16,6 +20,7 @@ Family::Application.routes.draw do
   resources :appointments
   resources :uploads
  
+  match '/create_master_account' => 'users#create_master_account'
   match '/doctors' => 'home#doctors', :as => :doctors
   match '/admin' => 'home#admin', :as => :admin
   match '/staff' => 'home#staff', :as => :staff
