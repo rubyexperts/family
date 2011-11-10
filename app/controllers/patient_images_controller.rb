@@ -3,10 +3,9 @@ class PatientImagesController < ApplicationController
   # GET /patient_images.xml
   def index
     @patient_images = PatientImage.all
-
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @patient_images }
+      #format.xml  { render :xml => @patient_images }
     end
   end
 
@@ -14,7 +13,6 @@ class PatientImagesController < ApplicationController
   # GET /patient_images/1.xml
   def show
     @patient_image = PatientImage.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @patient_image }
@@ -25,7 +23,6 @@ class PatientImagesController < ApplicationController
   # GET /patient_images/new.xml
   def new
     @patient_image = PatientImage.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @patient_image }
@@ -41,9 +38,12 @@ class PatientImagesController < ApplicationController
   # POST /patient_images.xml
   def create
     @patient_image = PatientImage.new(params[:patient_image])
-
+     if current_user and current_user.type=='Patient'
+       @patient_image.patient_id=current_user.id
+       @image=@patient_image.save
+     end
     respond_to do |format|
-      if @patient_image.save
+      if @image
         format.html { redirect_to(@patient_image, :notice => 'Patient image was successfully created.') }
         format.xml  { render :xml => @patient_image, :status => :created, :location => @patient_image }
       else

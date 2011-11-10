@@ -27,28 +27,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="doctor.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/doctor.rb">
+      <file leaf-file-name="database.yml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/database.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="1" selection-end="1" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/routes.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/uploads/show.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="10" selection-start="173" selection-end="173" vertical-scroll-proportion="-5.230769">
+            <state line="8" column="12" selection-start="122" selection-end="122" vertical-scroll-proportion="0.3523316">
               <folding />
             </state>
           </provider>
@@ -71,22 +53,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
-        <option value="$PROJECT_DIR$/app/uploaders/file_store_uploader.rb" />
-        <option value="$PROJECT_DIR$/app/views/home/patients.html.erb" />
-        <option value="$PROJECT_DIR$/db/migrate/20111108183143_create_patient_images.rb" />
-        <option value="$PROJECT_DIR$/app/views/patients/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/patient_image.rb" />
-        <option value="$PROJECT_DIR$/app/uploaders/image_store_uploader.rb" />
         <option value="$PROJECT_DIR$/app/views/patient_images/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/patient_images/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/patient_images/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/uploads/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/uploads_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/uploads/show.html.erb" />
-        <option value="$PROJECT_DIR$/config/database.yml" />
         <option value="$PROJECT_DIR$/app/models/doctor.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/models/patient.rb" />
+        <option value="$PROJECT_DIR$/app/views/home/patients.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/patients/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/default.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/patient_images/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/patient_images_controller.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20111110105704_add_column_to_upload.rb" />
+        <option value="$PROJECT_DIR$/app/models/patient_image.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/uploads_controller.rb" />
+        <option value="$PROJECT_DIR$/config/database.yml" />
       </list>
     </option>
   </component>
@@ -152,7 +134,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="db" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -166,14 +148,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="RailsProjectView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -241,6 +223,13 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="CucumberRunConfigurationType" factoryName="Cucumber">
@@ -405,15 +394,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284553" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3358605" sideWeight="0.67154473" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34114978" sideWeight="0.67154473" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3284553" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -421,7 +411,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3284553" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -470,114 +459,114 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20111108183143_create_patient_images.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/patients/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="16" selection-start="188" selection-end="188" vertical-scroll-proportion="0.30829015">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/uploaders/file_store_uploader.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="26" selection-start="623" selection-end="623" vertical-scroll-proportion="0.33423913">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/upload.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="74" selection-start="101" selection-end="101" vertical-scroll-proportion="0.092391305">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/patient_images_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="18" selection-start="359" selection-end="373" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/patient_images/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="42" selection-start="480" selection-end="480" vertical-scroll-proportion="0.47530866">
+        <state line="21" column="0" selection-start="552" selection-end="552" vertical-scroll-proportion="0.9005848">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/patient_images/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="65" selection-start="57" selection-end="118" vertical-scroll-proportion="0.1491228">
+        <state line="8" column="39" selection-start="211" selection-end="230" vertical-scroll-proportion="0.39766082">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/patient_images/_form.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/models/patient.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="30" selection-start="466" selection-end="466" vertical-scroll-proportion="0.63829786">
+        <state line="3" column="16" selection-start="63" selection-end="63" vertical-scroll-proportion="0.13858695">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/uploaders/image_store_uploader.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/patient_images/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="19" selection-start="614" selection-end="614" vertical-scroll-proportion="0.8532609">
+        <state line="2" column="21" selection-start="48" selection-end="48" vertical-scroll-proportion="-1.3076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/patient_images/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="52" selection-start="52" selection-end="52" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20111110105704_add_column_to_upload.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="80" selection-start="184" selection-end="184" vertical-scroll-proportion="0.46084338">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/patient_image.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="41" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0880829">
+        <state line="4" column="0" selection-start="125" selection-end="125" vertical-scroll-proportion="0.18478261">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/uploads/_form.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/patient_images_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="51" selection-start="20" selection-end="51" vertical-scroll-proportion="-0.0">
+        <state line="53" column="13" selection-start="1576" selection-end="1576" vertical-scroll-proportion="0.83152175">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/uploads/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/patients_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="4" selection-start="295" selection-end="295" vertical-scroll-proportion="-9.807693">
+        <state line="6" column="0" selection-start="121" selection-end="121" vertical-scroll-proportion="0.046195652">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/patients/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="1" selection-end="1" vertical-scroll-proportion="0.046195652">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/uploads_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="3" selection-start="841" selection-end="841" vertical-scroll-proportion="0.0">
+        <state line="60" column="36" selection-start="1485" selection-end="1485" vertical-scroll-proportion="0.72282606">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/uploads/show.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/default.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="10" selection-start="173" selection-end="173" vertical-scroll-proportion="-5.230769">
+        <state line="33" column="66" selection-start="1336" selection-end="1336" vertical-scroll-proportion="1.075">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/patient.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="77" selection-start="1100" selection-end="1112" vertical-scroll-proportion="0.13055556">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="9" selection-start="1186" selection-end="1186" vertical-scroll-proportion="0.90555555">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/patients.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="14" selection-start="36" selection-end="36" vertical-scroll-proportion="0.0880829">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/database.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="17" selection-start="128" selection-end="128" vertical-scroll-proportion="0.3523316">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/doctor.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="1" selection-end="1" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="8" column="12" selection-start="122" selection-end="122" vertical-scroll-proportion="0.3523316">
           <folding />
         </state>
       </provider>
