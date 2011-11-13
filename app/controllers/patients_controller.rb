@@ -2,10 +2,11 @@ class PatientsController < ApplicationController
 
    before_filter :authenticate_user!
    layout 'default'
+   before_filter :selected_tab
 
    def index
      if current_user.is_complete?
-       puts "-----------".inspect
+       @patients = Patient.find :all
      else
        redirect_to "/patients/#{current_user.id}/edit"
      end
@@ -26,6 +27,13 @@ class PatientsController < ApplicationController
      else
        render :edit
      end
+   end
+   
+   
+   private
+   
+   def selected_tab
+      @select = "home"
    end
    
       

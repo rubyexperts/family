@@ -16,17 +16,16 @@
                   <h1> Family Practice </h1>
                   
 			 <% if user_signed_in? %>  
-              <div id="user-cp"> <!--User Control Panel -->         
-                  <p class="welcome">Welcome <em><%= current_user.email %></em></p>   
-                   <ul>         
-                       <li>&nbsp;<%= link_to "Logout", destroy_user_session_path, :method => :delete %></li> 
-                    </ul> 
+              <div id="user-cp"> <!--User Control Panel -->                 
+                    <ul>
+                        <li> Welcome <em><%= current_user.email %> </em> </li> |
+                        <li>&nbsp;<%= link_to "Logout", destroy_user_session_path, :method => :delete %></li> 
+                    </ul>
               </div>
-
-                  <div class="console_header">
-                  </div>
-                     
-                   <div class="headernav">
+              <div class="console_header">
+              </div>
+              
+              <div class="headernav">
                        <div class="item <% if @select == "home" %> active <% end %>">
                           <a class="console" href="/home">Home</a>
                        </div>

@@ -1,6 +1,8 @@
 class PatientImagesController < ApplicationController
   # GET /patient_images
   # GET /patient_images.xml
+  
+  
   def index
     @patient_images = PatientImage.all
 
@@ -41,15 +43,11 @@ class PatientImagesController < ApplicationController
   # POST /patient_images.xml
   def create
     @patient_image = PatientImage.new(params[:patient_image])
-
-    respond_to do |format|
-      if @patient_image.save
-        format.html { redirect_to(@patient_image, :notice => 'Patient image was successfully created.') }
-        format.xml  { render :xml => @patient_image, :status => :created, :location => @patient_image }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @patient_image.errors, :status => :unprocessable_entity }
-      end
+    @patient_image.patient_id = current_user.id
+    if @patient_image.save
+       redirect_to "/patients"
+    else
+       render :new
     end
   end
 
