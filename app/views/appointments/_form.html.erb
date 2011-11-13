@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label "select Doctor" %><br />
-   <%= f.collection_select :doctor_id, Doctor.find(:all, :order => "first_name"), :id, :first_name, {:include_blank => "N/A (Not Applicable)"}, {"style" => "width:250px" } %>
+   <%= f.collection_select :doctor_id, Doctor.find(:all, :order => "first_name"), :id, :first_name, {:include_blank => "Select Doctor"}, {"style" => "width:250px" } %>
   </div>
   <div class="field">
     <%= f.label :start_time %><br />

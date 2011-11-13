@@ -1,8 +1,9 @@
 class PatientImagesController < ApplicationController
   # GET /patient_images
   # GET /patient_images.xml
-  
-  
+
+  before_filter :authenticate_user!
+
   def index
     @patient_images = PatientImage.all
     respond_to do |format|
