@@ -1,13 +1,14 @@
 class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.xml
+   before_filter :authenticate_user!
   before_filter :selected_tab
   
   def index
     if current_user.is_patient?
-    @appointments = Appointment.where('patient_id= ? ',current_user.id)
+      @appointments = Appointment.where('patient_id= ? ',current_user.id)
     elsif current_user.is_doctor?
-     @appointments= Appointment.where('doctor_id= ? ',current_user.id)
+      @appointments= Appointment.where('doctor_id= ? ',current_user.id)
     end
     respond_to do |format|
       format.html # index.html.erb
