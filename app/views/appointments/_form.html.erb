@@ -12,12 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :doctor_id %><br />
-    <%= f.text_field :doctor_id %>
-  </div>
-  <div class="field">
-    <%= f.label :patient_id %><br />
-    <%= f.text_field :patient_id %>
+    <%= f.label "select Doctor" %><br />
+   <%= f.collection_select :doctor_id, Doctor.find(:all, :order => "first_name"), :id, :first_name, {:include_blank => "N/A (Not Applicable)"}, {"style" => "width:250px" } %>
   </div>
   <div class="field">
     <%= f.label :start_time %><br />

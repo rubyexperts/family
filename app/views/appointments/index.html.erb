@@ -15,8 +15,8 @@
 
 <% @appointments.each do |appointment| %>
   <tr>
-    <td><%= appointment.doctor_id %></td>
-    <td><%= appointment.patient_id %></td>
+    <td><%= appointment.doctor.first_name %></td>
+    <td><%= appointment.patient.first_name %></td>
     <td><%= appointment.start_time %></td>
     <td><%= appointment.end_time %></td>
     <td><%= appointment.hosiptal_name %></td>
