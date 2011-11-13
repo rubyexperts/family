@@ -23,8 +23,16 @@
     <% end %>
 </table>
 
-
 <h3> <%= link_to 'Upload Insurance Document', new_upload_path %> </h3>
+
+ <% @patients.each do |patient| %>
+		<% present_user = patient %>
+		<% present_user.uploads.each do |upload_obj| %>
+		     
+		     <%= link_to "#{upload_obj.id}" , "/download/#{upload_obj.id}" %><br/><br/>
+  
+		<% end %>		
+ <% end %>
 
 
 

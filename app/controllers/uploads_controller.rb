@@ -41,9 +41,12 @@ class UploadsController < ApplicationController
     @upload = Upload.find(params[:id])
   end
   
-  #def download
-   #send_file "#{Rails.root}/public/uploads/upload/my_file/6/NelloreToHyd.pdf"
-  #end
+  def download
+    upload = Upload.find(params[:id])
+    send_file "#{Rails.root}/public#{upload.my_file}"
+  end
+  
+ # /uploads/upload/my_file/1/Eshwar_Gouthama.docx 
   
   # POST /uploads
   # POST /uploads.xml

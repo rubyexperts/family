@@ -25,6 +25,8 @@ Family::Application.routes.draw do
   match '/admin' => 'home#admin', :as => :admin
   match '/staff' => 'home#staff', :as => :staff
   match '/company' => 'home#company', :as => :company
+  match '/download/:id' => 'uploads#download', :as => :download
+  
 
 
   # Redirection after sign_up page
