@@ -1,4 +1,5 @@
 
+<a href="#patientpic" rel="facebox">See Identification Detail</a> <br/><br/>
 
 <table>
     <tr>
@@ -6,20 +7,21 @@
 	   <th></th>
 	   <th></th>
     </tr>
-
     <% @patients.each do |patient| %>
         <tr>
 		    <td>
-			     <% patient.patient_images.each do |patient_image| %>
-				      <div class="patient-pic">
+			    <div id="patientpic" class="patient-pic" style="display:none">
+			        <% patient.patient_images.each do |patient_image| %>
 					     <%= image_tag patient_image.image.to_s if !patient_image.nil? %>
-				      </div>
-				 <% end %>
+				    <% end %>
+			    </div>
 	        </td>
         </tr>
     <% end %>
 	
 </table>
+
+
 
 <%= link_to 'Upload Identification Detail', new_patient_image_path %> <span class="cancel"> | </span>
 <%= link_to 'Upload Insurance Document', new_upload_path %>
