@@ -12,9 +12,8 @@
   <% end %>
 
   <div class="field">
-    <% @doctors=Doctor.all(:select=>['id, first_name,last_name'])%>
     <%= f.label "select Doctor" %><br />
-    <%=collection_select(:appointment, :doctor_id, @doctors, :id, :first_name, {:prompt => true}) %></div>
+   <%= f.collection_select :doctor_id, Doctor.find(:all, :order => "first_name"), :id, :first_name, {:include_blank => "N/A (Not Applicable)"}, {"style" => "width:250px" } %>
   </div>
   <div class="field">
     <%= f.label :start_time %><br />
