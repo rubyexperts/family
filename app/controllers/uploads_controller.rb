@@ -40,22 +40,20 @@ class UploadsController < ApplicationController
   def edit
     @upload = Upload.find(params[:id])
   end
+  
   #def download
    #send_file "#{Rails.root}/public/uploads/upload/my_file/6/NelloreToHyd.pdf"
   #end
+  
   # POST /uploads
   # POST /uploads.xml
   def create
     @upload = Upload.new(params[:upload])
-    @upload.user_id=current_user.id if current_user
-    respond_to do |format|
-      if @upload.save
-        format.html { redirect_to(@upload, :notice => 'Upload was successfully created.') }
-        format.xml  { render :xml => @upload, :status => :created, :location => @upload }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @upload.errors, :status => :unprocessable_entity }
-      end
+    @upload.user_id = current_user.id if current_user
+    if @upload.save
+      redirect_to "/patients"
+    else
+      render :new
     end
   end
 

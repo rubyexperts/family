@@ -1,7 +1,7 @@
 
 .patient-form{list-style:none;}
 .clear{clear:both; height:0;font-size: 1px;line-height: 0px;}
-.cancel{color:green;}
+.cancel{color:red;}
 
 /* patient Pic */
 div.patient-pic{text-align:left;}

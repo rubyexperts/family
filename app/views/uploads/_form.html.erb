@@ -11,11 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label "Select File to Upload" %><br />
-    <%= f.file_field :my_file %>
-  </div>
+  <ul class="patient-form">
+     <li>
+        <%= f.file_field :my_file %>
+     <li>
+  </ul>
   <div class="actions">
-    <%= f.submit %>
+      <%= f.submit "Upload" %> <span class="cancel"> Or </span>
+      <%= link_to 'Cancel', patients_path %>
   </div>
+  
 <% end %>
