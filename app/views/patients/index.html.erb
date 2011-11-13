@@ -12,11 +12,9 @@
     <% @patients.each do |patient| %>
         <tr>
 		    <td>
-			    <% patient.patient_images.each do |patient_image| %>
-			        <div class="patient-pic">
-				       <%= image_tag patient_image.image.to_s if !patient_image.image.nil? %>
-				    </div>
-			    <% end %>
+			    <div class="patient-pic">
+				    <%= image_tag patient.patient_image.image.to_s if !patient.patient_image.nil? %>
+				</div>
 	        </td>
         </tr>
     <% end %>
