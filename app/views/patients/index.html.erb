@@ -1,5 +1,5 @@
 
-<h3> <%= link_to 'Upload Identification Detail', new_patient_image_path %> </h3>
+<h3> <%= link_to 'Upload New Identification Detail', new_patient_image_path %> </h3>
 
 <table>
     <tr>
@@ -10,9 +10,9 @@
     <% @patients.each do |patient| %>
         <tr>
 		    <td>
-			  	 <% patient.patient_images.each do |patient_image| %>
+			  	 <% patient.patient_images.each_with_index do |patient_image,i| %>
 				       <a href="#<%= patient_image.id %>" rel="facebox">
-					      View <%= image_file_name(patient_image) %>
+					      View Idetification - <%= i +1 %>
 					   </a> <br/><br/>
 				      <div id="<%= patient_image.id %>" class="patient-pic" style="display:none">
 					     <%= image_tag patient_image.image.to_s if !patient_image.nil? %>
@@ -23,12 +23,12 @@
     <% end %>
 </table>
 
-<h3> <%= link_to 'Upload Insurance Document', new_upload_path %> </h3>
+<h3> <%= link_to 'Upload New Insurance Document', new_upload_path %> </h3>
 
  <% @patients.each do |patient| %>
 		<% present_user = patient %>
-		<% present_user.uploads.each do |upload_obj| %>		     
-		     <%= link_to "#{upload_obj.id}" , "/download/#{upload_obj.id}" %><br/><br/>  
+		<% present_user.uploads.each_with_index do |upload_obj,i| %>		     
+		     <%= link_to "View document - #{i + 1}" , "/download/#{upload_obj.id}" %><br/><br/>  
 		<% end %>		
  <% end %>
 
