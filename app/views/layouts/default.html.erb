@@ -33,9 +33,12 @@
                           <a class="console" href="/patients/<%=current_user.id%>/edit">My Account</a>
                        </div>
                         <% end %>
+                <% if !current_user.is_admin? %>
+
                        <div class="item <% if @select == "appointment" %> active <% end %>">
                           <a class="console" href="/appointments">Appointments</a>
                        </div>
+                <% end %>
                        <% if current_user.is_doctor? %>
                           <div class="item <% if @select == "admin" %> active <% end %>">
                              <a class="console" href="/users">Admin</a>
