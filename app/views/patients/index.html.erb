@@ -12,7 +12,7 @@
 		    <td>
 			  	 <% patient.patient_images.each_with_index do |patient_image,i| %>
 				       <a href="#<%= patient_image.id %>" rel="facebox">
-					      View Idetification - <%= i +1 %>
+					      View Idetification - <%= (i + 1) %>
 					   </a> <br/><br/>
 				      <div id="<%= patient_image.id %>" class="patient-pic" style="display:none">
 					     <%= image_tag patient_image.image.to_s if !patient_image.nil? %>
