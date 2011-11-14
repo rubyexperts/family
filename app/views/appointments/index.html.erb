@@ -1,33 +1,19 @@
-<h1>My Appointments</h1>
+<h1> My Appointments </h1>
 
-    <table>
-        <tr>
-           <th>Doctor</th>
-           <th>Patient</th>
-           <th>Start time</th>
-           <th>End time</th>
-           <th>Hosiptal name</th>
-           <th>Purpose</th>
-           <th></th>
-           <th></th>
-           <th></th>
-         </tr>
+<% if current_user.is_patient? %>
 
-        <% @appointments.each do |appointment| %>
-           <tr>
-               <td><%= appointment.doctor.first_name %></td>
-               <td><%= appointment.patient.first_name %></td>
-               <td><%= appointment.start_time %></td>
-               <td><%= appointment.end_time %></td>
-               <td><%= appointment.hosiptal_name %></td>
-               <td><%= appointment.purpose %></td>
-               <td><%= link_to 'Show', appointment %></td>
-               <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-               <td><%= link_to 'Destroy', appointment, :confirm => 'Are you sure?', :method => :delete %></td>
-           </tr>
-       <% end %>
-    </table>  <br />
+     <%= render "patient" %>
+   
+<% end %>
 
-    <%= link_to 'New Appointment', new_appointment_path %>
+
+<% if current_user.is_doctor? %>
+
+   
+       <%= render "doctor" %>
+       
+<% end %>
+
+   
 
 
