@@ -30,7 +30,7 @@
                        </div>
                        <% if current_user.is_patient? %>
                        <div class="item <% if @select == "My Account" %> active <% end %>">
-                          <a class="console" href="/patient_images/">My Account</a>
+                          <a class="console" href="/patients/<%=current_user.id%>/edit">My Account</a>
                        </div>
                         <% end %>
                        <div class="item <% if @select == "appointment" %> active <% end %>">
