@@ -46,15 +46,12 @@ class AppointmentsController < ApplicationController
   # POST /appointments.xml
   def create
     @appointment = Appointment.new(params[:appointment])
-    @appointment.patient_id=current_user.id  if current_user.is_patient?
-    respond_to do |format|
-      if @appointment.save
-        format.html { redirect_to(@appointment, :notice => 'Appointment was successfully created.') }
-        format.xml  { render :xml => @appointment, :status => :created, :location => @appointment }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @appointment.errors, :status => :unprocessable_entity }
-      end
+    @appointment.patient_id = current_user.id  if current_user.is_patient?
+    if @appointment.save
+      UserMailer.appointment_confirm(@appointment).deliver
+      redirect_to "/appointments"
+    else
+      render :new
     end
   end
 
