@@ -14,8 +14,8 @@
 		<% @appointments.each do |appointment| %>
 		   <tr>
 			   <td><%= appointment.patient.first_name %></td>
-			   <td><%= appointment.start_time.strftime('%b %d, %Y' + " " + "at %I:%M%p") %></td>
-			   <td><%= appointment.end_time.strftime('%b %d, %Y' + " " + "at %I:%M%p") %></td>
+			   <td><%= appointment.start_time.strftime('%b %e, %l:%M %p') %></td>
+			   <td><%= appointment.end_time.strftime('%b %e, %l:%M %p') %></td>
 			   <td><%= appointment.hosiptal_name %></td>
 			   <td><%= appointment.purpose %></td> &nbsp;
 			   <td>
