@@ -6,7 +6,7 @@ class PatientsController < ApplicationController
 
    def index
      #if current_user.is_complete?
-       @patients = Patient.find :all
+       @patients = Patient.find :all       
      #else
        #redirect_to "/patients/#{current_user.id}/edit"
      #end
