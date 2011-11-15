@@ -1,5 +1,32 @@
-<h1>Listing Master Accounts</h1>
 
 <br />
+<table>
+  <tr>
+    <th> Email</th>
+    <th>Name </th>
+    <th>Address</th>
+    <th>City</th>
+    <th>Country </th>
+    <th>Zipcode</th>
+    <th>Mobile No</th>
 
-<%= link_to 'New Master Account', new_user_path %>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.email %></td>
+    <td><%= user.first_name + user.last_name if user.last_name %></td>
+    <td><%= user.address %></td>
+    <td><%= user.city %></td>
+    <td><%= user.country %></td>
+    <td><%= user.zipcode %></td>
+    <td><%= user.mobile_number %></td>
+    <td><%= link_to 'Show',"/users/#{user.id}" %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?',:method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<%= link_to 'New User', new_user_path %>
