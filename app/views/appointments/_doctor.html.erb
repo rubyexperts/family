@@ -9,29 +9,23 @@
 		   <th>Hosiptal Name</th> &nbsp;&nbsp;&nbsp;
 		   <th>Purpose</th>
 		   <th>Approval Status</th>
-		   <th></th>
-		   <th></th>
-		   <th></th>
 		 </tr>
 
 		<% @appointments.each do |appointment| %>
 		   <tr>
 			   <td><%= appointment.patient.first_name %></td>
-			   <td><%= appointment.start_time.strftime('%b %d, %Y') %></td>
-			   <td><%= appointment.end_time.strftime('%b %d, %Y') %></td>
+			   <td><%= appointment.start_time.strftime('%b %d, %Y' + " " + "at %I:%M%p") %></td>
+			   <td><%= appointment.end_time.strftime('%b %d, %Y' + " " + "at %I:%M%p") %></td>
 			   <td><%= appointment.hosiptal_name %></td>
 			   <td><%= appointment.purpose %></td> &nbsp;
 			   <td>
 				   <% if appointment.is_pending? %>
-					  <%= link_to "Approve Status", "/appointment_approve/#{appointment.id}" %>
+					   <%= link_to "Approve Status", "/appointment_approve/#{appointment.id}", :class => "pending" %>
 				   <% end %>
 				   <% if appointment.is_approved? %>
-				       <%= appointment.get_approval_status %>
+				       <span class="approved"> <%= appointment.get_approval_status %> </span>
 				   <% end %>
-			   </td> 
-			   <td><%= link_to 'Show', appointment %></td>
-			   <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-			   <td><%= link_to 'Destroy', appointment, :confirm => 'Are you sure?', :method => :delete %></td>
+			   </td>			  
 		   </tr>
 	   <% end %>
  </table>  <br />

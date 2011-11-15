@@ -20,7 +20,7 @@ class AppointmentsController < ApplicationController
      appointment = Appointment.find(params[:id])
      appointment.approve_status = 2
      appointment.save!
-     UserMailer.appointment_confirmation(@appointment).deliver
+     UserMailer.appointment_confirmation(appointment).deliver
      redirect_to "/appointments"
   end
 
@@ -69,6 +69,8 @@ class AppointmentsController < ApplicationController
   def update
     @appointment = Appointment.find(params[:id])
     if @appointment.update_attributes(params[:appointment])
+      @appointment.approve_status = 1
+      @appointment.save
       UserMailer.appointment_pending(@appointment).deliver
       redirect_to "/appointments"
     else
