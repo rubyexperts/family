@@ -22,7 +22,7 @@ Family::Application.routes.draw do
  
   
   match '/create_master_account' => 'users#create_master_account'
-  match '/appointment_approve/:id' => 'appointments#appointment_approve'
+  match '/appointment_approve/:id' => 'appointments#appointment_approve', :as => :appointment_approve
   
   match '/doctors' => 'home#doctors', :as => :doctors
   match '/admin' => 'home#admin', :as => :admin

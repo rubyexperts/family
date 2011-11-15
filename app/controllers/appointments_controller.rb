@@ -16,7 +16,7 @@ class AppointmentsController < ApplicationController
     end
   end
   
-  def appointment_approve    
+  def appointment_approve
      appointment = Appointment.find(params[:id])
      appointment.approve_status = 2
      appointment.save!
