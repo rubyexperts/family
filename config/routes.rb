@@ -19,12 +19,12 @@ Family::Application.routes.draw do
   resources :patient_images
   resources :appointments
   resources :uploads
+  resources :doctors
  
   
   match '/create_master_account' => 'users#create_master_account'
   match '/appointment_approve/:id' => 'appointments#appointment_approve', :as => :appointment_approve
   
-  match '/doctors' => 'home#doctors', :as => :doctors
   match '/admin' => 'home#admin', :as => :admin
   match '/staff' => 'home#staff', :as => :staff
   match '/company' => 'home#company', :as => :company

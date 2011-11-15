@@ -23,17 +23,13 @@ class HomeController < ApplicationController
   
   def update
     raise "FFFF".inspect
-  end
-  
-  def doctors
-  end
-  
+  end  
+ 
   def staff
   end
   
   def company
-  end
-  
+  end 
   
   private
   
