@@ -5,11 +5,11 @@ class PatientsController < ApplicationController
    before_filter :selected_tab
 
    def index
-     if current_user.is_complete?
+     #if current_user.is_complete?
        @patients = Patient.find :all
-     else
-       redirect_to "/patients/#{current_user.id}/edit"
-     end
+     #else
+       #redirect_to "/patients/#{current_user.id}/edit"
+     #end
    end
    
    def edit
