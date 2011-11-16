@@ -1,9 +1,13 @@
 class AccountsController < ApplicationController
 
    before_filter :authenticate_user!
-   before_filter :selected_tab
+   before_filter :selected_tab, :only => [:all_accounts]
 
    def index
+     @select = "home"
+   end
+   
+   def all_accounts
      @users = User.where('master_id = ?', current_user.id)
    end
    

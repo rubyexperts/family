@@ -17,6 +17,8 @@ Family::Application.routes.draw do
   resources :accounts
  
   match "/users/sign_out" => "devise/sessions#destroy"
+  match "/all_accounts" => "accounts#all_accounts"
+  
   match '/create_master_account' => 'users#create_master_account'
   match '/appointment_approve/:id' => 'appointments#appointment_approve', :as => :appointment_approve
   

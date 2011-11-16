@@ -1,30 +1,4 @@
-
-
-<p> This is Account users view </p>
-
-<table>
-  <tr>
-	<th> Name </th>&nbsp;&nbsp;
-	<th> Email</th>	
-	<th></th>	
-  </tr>
-
-  <% @users.each do |user| %>
-
-     <tr>
+<p>
+    This is Account user DashBoard 
 	
-	     <td><%= user.first_name %></td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	     <td><%= user.email %></td>
-	     <td>
-	         <%= link_to 'Edit', edit_account_path(user) %> |
-	         <a rel="nofollow" data-method="delete" data-confirm="Are you sure?" class="delete" href="/accounts/<%= user.id %>">Delete</a>
-	     </td>
-	
-     </tr>
-	 
-  <% end %>
-  
-</table>
-
-
-<%= link_to 'New Account', new_account_path %>
+</p>
