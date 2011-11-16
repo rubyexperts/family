@@ -2,6 +2,7 @@ Family::Application.routes.draw do
 
   namespace :admin do
   resources :users
+  resources :appointments
  end
   devise_for :users
   devise_for :doctors
