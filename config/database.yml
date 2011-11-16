@@ -2,9 +2,9 @@
 
 development:
   adapter: mysql
-  #port: 3307
+  port: 3307
   encoding: utf8
   database: family_development
   username: root
-  password: murali
+  password:
   host: localhost
