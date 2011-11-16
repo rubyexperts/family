@@ -44,7 +44,6 @@ class UsersController < ApplicationController
    end
 
   def destroy
-    raise params.inspect
     @user = User.find(params[:id])
     @user.destroy
    respond_to do |format|
