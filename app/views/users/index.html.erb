@@ -22,15 +22,8 @@
     <td><%= user.mobile_number %></td>
     <td><%= link_to 'Show',"/users/#{user.id}" %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
-<<<<<<< HEAD
     <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" class="delete" href="/users/<%= user.id %>">Destroy</a></td>
  </tr>
-=======
-    <td>
-        <a rel="nofollow" data-method="delete" data-confirm="Are you sure?" class="delete" href="/users/<%= user.id %>">Delete</a>
-    </td>
-  </tr>
->>>>>>> 8edea221fc459b2b1a8670ab89392f0287e8f642
 <% end %>
 </table>
 
