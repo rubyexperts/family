@@ -9,8 +9,7 @@ class DoctorsController < ApplicationController
 	  @my_approved_appointments.each do |appointment|
 	     @my_patients << Patient.find_by_id(appointment.patient_id)
 	  end
-	end
-	
+	end	
 	
 	
     private
