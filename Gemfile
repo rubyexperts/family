@@ -8,6 +8,7 @@ gem 'rails', '3.0.7'
 gem 'sqlite3'
 gem 'mysql'
 gem 'devise', '1.4.5'
+gem 'jquery-rails', '1.0.12'
 
 gem 'carrierwave'
 

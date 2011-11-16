@@ -3,9 +3,7 @@ Family::Application.routes.draw do
   devise_for :users
   devise_for :doctors
   devise_for :patients
-  #devise_for :admin  
-  #devise_for :companies 
- 
+  devise_for :admin  
  
  ###### Main Routes #######
   

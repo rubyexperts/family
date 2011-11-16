@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
+
    before_filter :authenticate_user!
-   before_filter :selected_tab
-   layout 'default'   
+   before_filter :selected_tab, :only => [:create_master_account]
+   layout 'default'
    
    def index
-     @users=User.all
+     @users = User.all
       respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml =>@users }
@@ -43,6 +44,7 @@ class UsersController < ApplicationController
    end
 
   def destroy
+    raise params.inspect
     @user = User.find(params[:id])
     @user.destroy
    respond_to do |format|
