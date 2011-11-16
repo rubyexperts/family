@@ -29,26 +29,29 @@
                           <a class="console" href="/home">Home</a>
                        </div>
                        <% if current_user.is_patient? %>
-                       <div class="item <% if @select == "My Account" %> active <% end %>">
-                          <a class="console" href="/patients/<%=current_user.id%>/edit">My Account</a>
-                       </div>
-                        <% end %>
-                <% if !current_user.is_admin? %>
-
-                       <div class="item <% if @select == "appointment" %> active <% end %>">
-                          <a class="console" href="/appointments">Appointments</a>
-                       </div>
-                <% end %>
-
-                 <% if current_user.is_admin? %>
-                  <div class="item  active ">
-                          <a class="console" href="/users">Users</a>
-                       </div>
-                <% end %>
-                       <% if current_user.is_doctor? %>
-                          <div class="item <% if @select == "admin" %> active <% end %>">
-                             <a class="console" href="/users">Admin</a>
+                           <div class="item <% if @select == "My Account" %> active <% end %>">
+                              <a class="console" href="/patients/<%=current_user.id%>/edit">My Account</a>
+                           </div>
+                       <% end %>
+                       <% if current_user.is_patient? || current_user.is_doctor? %>
+                          <div class="item <% if @select == "appointment" %> active <% end %>">
+                             <a class="console" href="/appointments">Appointments</a>
                           </div>
+                       <% end %>
+                       <% if current_user.is_admin? %>
+                          <div class="item active ">
+                            <a class="console" href="/users">Users</a>
+                          </div>
+                       <% end %>
+                       <% if current_user.is_account_user? %>
+                          <div class="item <% if @select == "accounts" %> active <% end %>">
+                            <a class="console" href="/accounts">Accounts</a>
+                          </div>
+                       <% end %>
+                       <% if current_user.is_doctor? %>
+                           <div class="item <% if @select == "admin" %> active <% end %>">
+                              <a class="console" href="/users">Admin</a>
+                           </div>
                        <% end %>
                    </div>
                   

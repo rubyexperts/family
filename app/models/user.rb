@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   validates_presence_of :last_name, :if => :last_name
   validates_presence_of :title, :if => :title
   validates_presence_of :address, :if => :address
-  validates_presence_of :home_number, :if => :home_number
+  validates_presence_of :home_number, :if => :home_number   
   
   def is_admin?
     self.type == "Admin"
@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
   
   def is_company?
     self.type == "Company"
+  end
+  
+  def is_account_user?
+    self.type == "AccountUser"
   end
   
   def is_complete?

@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
 
   before_filter :authenticate_user!
-  before_filter :selected_tab
   
+ # before_filter :selected_tab
  
   def index
     if current_user.is_admin?
@@ -15,6 +15,8 @@ class HomeController < ApplicationController
       redirect_to "/staff"
     elsif current_user.is_company?
       redirect_to "/company"
+    elsif current_user.is_account_user?
+      redirect_to "/accounts"
     end
   end
   
@@ -23,7 +25,7 @@ class HomeController < ApplicationController
   
   def update
     raise "FFFF".inspect
-  end  
+  end
  
   def staff
   end

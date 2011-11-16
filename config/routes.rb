@@ -7,10 +7,6 @@ Family::Application.routes.draw do
  
  ###### Main Routes #######
   
- # namespace :admin do
-  #  resources :users # Have the admin manage them here.
- # end
-  
   resources :users
   resources :home
   resources :patients
@@ -18,6 +14,7 @@ Family::Application.routes.draw do
   resources :appointments
   resources :uploads
   resources :doctors
+  resources :accounts
  
   match "/users/sign_out" => "devise/sessions#destroy"
   match '/create_master_account' => 'users#create_master_account'
