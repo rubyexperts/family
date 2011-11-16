@@ -12,7 +12,7 @@
           <div id="user-cp"> <!--User Control Panel -->
            <p class="welcome">Welcome <em><%= current_user.email %></em></p>
            <ul> 
-               <li>&nbsp;<%= link_to "Logout", destroy_user_session_path %></li>
+               <li>&nbsp;<%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
            </ul>
       </div>
       

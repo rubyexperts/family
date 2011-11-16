@@ -3,7 +3,7 @@ Family::Application.routes.draw do
   devise_for :users
   devise_for :doctors
   devise_for :patients
-  devise_for :admin  
+  devise_for :admin
  
  ###### Main Routes #######
   
@@ -19,7 +19,7 @@ Family::Application.routes.draw do
   resources :uploads
   resources :doctors
  
-  
+  match "/users/sign_out" => "devise/sessions#destroy"
   match '/create_master_account' => 'users#create_master_account'
   match '/appointment_approve/:id' => 'appointments#appointment_approve', :as => :appointment_approve
   
