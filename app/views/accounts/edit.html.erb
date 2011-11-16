@@ -1,8 +1,8 @@
-<h2>New Account</h2>
+<h2>Edit Account</h2>
 
-<%= form_for(@user, :url => accounts_path, :method => :post ) do |f| %>
+<%= form_for(@user, :url => account_path(@user), :method => :put ) do |f| %>
 
-    <% if @user.errors.any? %>
+        <% if @user.errors.any? %>
       <div id="error_explanation">
          <ul>
             <% @user.errors.full_messages.each do |msg| %>
@@ -11,7 +11,7 @@
          </ul>
       </div>
     <% end %>
-    
+
     <div><%= f.label :first_name %><br />
     <%= f.text_field :first_name %></div>
 
@@ -25,19 +25,20 @@
         <%= f.label :password %><br />
         <%= f.password_field :password %>
     </div>
-    
+
     <div>
        <%= f.label :password_confirmation %><br />
        <%= f.password_field :password_confirmation %></div>
     <div>
-    
+
     <div>
       <%= f.label :type %><br />
       <%= f.select :type, options_for_select(%w(Nurse Staff Doctor)) %>
     </div> <br />
 
+    
     <div>
-       <%= f.submit "Create" %> Or <%= link_to "Cancel", accounts_path, :class => "cancel" %>
+       <%= f.submit "Update" %> Or <%= link_to "Cancel", accounts_path, :class => "cancel" %>
     </div>
  
 <% end %>
