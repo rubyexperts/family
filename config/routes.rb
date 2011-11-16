@@ -1,5 +1,10 @@
 Family::Application.routes.draw do
 
+namespace :admin do
+  resources :appointments
+end
+
+
   devise_for :users
   devise_for :doctors
   devise_for :patients
