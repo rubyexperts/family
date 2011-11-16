@@ -1,0 +1,47 @@
+<p>
+  <b>Email:</b>
+  <%= @patient.email %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @patient.first_name  %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @patient.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @patient.city %>
+</p>
+
+<p>
+  <b>Zipcode:</b>
+  <%= @patient.zipcode %>
+</p>
+
+<p>
+  <b>Mobile:</b>
+  <%= @patient.mobile_number %>
+</p>
+
+<p>
+  <b>Start Time:</b>
+  <%= @appointment.start_time.strftime('%b %e, %l:%M %p') %>
+</p>
+
+<p>
+  <b>End Time:</b>
+  <%= @appointment.end_time.strftime('%b %e, %l:%M %p') %>
+</p>
+
+
+ <p>Hospital : <%= @appointment.hosiptal_name %></p>
+ 
+         <p> <b>Purpose:</b>
+         <%= @appointment.purpose %></p> &nbsp;
+
+   <%= link_to "Back", "/appointments" %>

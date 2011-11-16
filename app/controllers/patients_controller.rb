@@ -2,7 +2,7 @@ class PatientsController < ApplicationController
 
    before_filter :authenticate_user!
    layout 'default'
-   before_filter :selected_tab
+   before_filter :selected_tab, :except => [:patient_details]
 
    def index
      #if current_user.is_complete?
@@ -29,6 +29,11 @@ class PatientsController < ApplicationController
      end
    end
    
+   def patient_details   
+     @select = "appointment"
+     @appointment = Appointment.find(params[:id])
+     @patient = Patient.find_by_id(@appointment.patient_id)     
+   end
    
    private
    

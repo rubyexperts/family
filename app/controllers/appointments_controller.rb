@@ -54,9 +54,10 @@ class AppointmentsController < ApplicationController
   # POST /appointments.xml
   def create
     @appointment = Appointment.new(params[:appointment])
-    @appointment.patient_id = current_user.id  if current_user.is_patient?
+    @appointment.patient_id = current_user.id  if current_user.is_patient?    
     @appointment.approve_status = 1
     if @appointment.save
+      DoctorPatient.create({:patient_id => @appointment.patient_id, :doctor_id => @appointment.doctor_id })
       UserMailer.appointment_pending(@appointment).deliver
       redirect_to "/appointments"
     else
