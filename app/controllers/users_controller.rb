@@ -5,10 +5,10 @@ class UsersController < ApplicationController
    layout 'default'
    
    def index
-     @users = User.all
+      @users = Master.all
       respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml =>@users }
+      format.xml  { render :xml => @users }
     end
    end
    
