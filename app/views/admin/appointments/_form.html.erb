@@ -1,4 +1,4 @@
-<%= form_for(@appointment) do |f| %>
+<%= form_for(@appointment ,:url=>{:controller=>'admin/appointments'}) do |f| %>
   <% if @appointment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
@@ -14,6 +14,10 @@
   <div class="field">
     <%= f.label "select Doctor" %><br />
    <%= f.collection_select :doctor_id, Doctor.find(:all, :order => "first_name"), :id, :first_name, {:include_blank => "Select Doctor"}, {"style" => "width:250px" } %>
+  </div>
+  <div class="field">
+    <%= f.label "select Patient" %><br />
+   <%= f.collection_select :patient_id, Patient.find(:all, :order => "first_name"), :id, :first_name, {:include_blank => "Select Patient"}, {"style" => "width:250px" } %>
   </div>
   <div class="field">
     <%= f.label :start_time %><br />
@@ -32,6 +36,6 @@
     <%= f.text_field :purpose %>
   </div>
   <div class="actions">
-    <%= f.submit %> Or <span class="cancel"> <%= link_to 'Cancel', appointments_path %> </span>
+    <%= f.submit %> Or <span class="cancel"> <%= link_to 'Cancel', admin_appointments_path %> </span>
   </div>
 <% end %>
