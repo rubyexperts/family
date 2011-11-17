@@ -19,6 +19,7 @@ Family::Application.routes.draw do
   match "/users/sign_out" => "devise/sessions#destroy"
   match "/all_accounts" => "accounts#all_accounts"
   match "/patient_details/:id" => "patients#patient_details"
+  match "/doctor_patients" => "doctors#doctor_patients", :as => :my_patients
   
   match '/create_master_account' => 'users#create_master_account'
   match '/appointment_approve/:id' => 'appointments#appointment_approve', :as => :appointment_approve

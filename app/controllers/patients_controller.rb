@@ -6,16 +6,18 @@ class PatientsController < ApplicationController
 
    def index
      #if current_user.is_complete?
-       @patients = Patient.find :all       
+       @patients = Patient.find :all
      #else
        #redirect_to "/patients/#{current_user.id}/edit"
      #end
    end
    
+   # edit account for patient
    def edit
      @user = User.find(params[:id])
    end
    
+   # update account for patient
    def update
      @user = User.find(params[:id])
      @user.attributes = params[:patient]
@@ -29,10 +31,10 @@ class PatientsController < ApplicationController
      end
    end
    
-   def patient_details   
+   def patient_details
      @select = "appointment"
      @appointment = Appointment.find(params[:id])
-     @patient = Patient.find_by_id(@appointment.patient_id)     
+     @patient = Patient.find_by_id(@appointment.patient_id)
    end
    
    private
