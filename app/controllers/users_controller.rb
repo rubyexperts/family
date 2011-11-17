@@ -5,11 +5,12 @@ class UsersController < ApplicationController
    layout 'default'
    
    def index
-      @users = Master.all
+      @users = User.all
+      @select = "user"
       respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
-    end
+      end
    end
    
    def new
