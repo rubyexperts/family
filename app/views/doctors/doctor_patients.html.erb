@@ -1,0 +1,21 @@
+
+
+<p>
+    This is Doctors Patients Page
+	
+</p>
+
+
+<% if @my_patients.nil? %>
+   
+      <p> There are no Patients for you right now </p>
+      
+<% else %>
+    
+      <% @my_patients.each do |patient| %>
+            <%= patient.email %>
+            <%= patient.first_name %>
+      <% end %>
+      
+      
+<% end %>
