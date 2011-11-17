@@ -2,7 +2,6 @@
 
 <p>
     This is Doctors Patients Page
-	
 </p>
 
 
@@ -12,9 +11,18 @@
       
 <% else %>
     
-      <% @my_patients.each do |patient| %>
-            <%= patient.email %>
-            <%= patient.first_name %>
+      <% @my_patients.each do |p| %>
+          <% patient = Patient.find_by_id(p.patient_id) %>
+          
+           <p>  <b>Email:</b>
+              <%= patient.email %>
+           </p>
+
+           <p>
+              <b>Name:</b>
+              <%= patient.first_name  %>
+           </p>
+           
       <% end %>
       
       
