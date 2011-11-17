@@ -32,9 +32,11 @@ class PatientsController < ApplicationController
    end
    
    def patient_details
-     @select = "appointment"
-     @appointment = Appointment.find(params[:id])
-     @patient = Patient.find_by_id(@appointment.patient_id)
+     if current_user.is_doctor?
+       @select = "doctor_patients"
+       @patient = Patient.find(params[:id])
+      #@appointment = Appointment.find(params[:id])
+     end
    end
    
    private

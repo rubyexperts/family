@@ -28,21 +28,6 @@
   <%= @patient.mobile_number %>
 </p>
 
-<p>
-  <b>Start Time:</b>
-  <%= @appointment.start_time.strftime('%b %e, %l:%M %p') %>
-</p>
-
-<p>
-  <b>End Time:</b>
-  <%= @appointment.end_time.strftime('%b %e, %l:%M %p') %>
-</p>
-
-
- <p>Hospital : <%= @appointment.hosiptal_name %></p>
- 
-         <p> <b>Purpose:</b>
-         <%= @appointment.purpose %></p> &nbsp;
          
      <h3> Patient Identification Details & Uploads </h3>
          
@@ -63,4 +48,4 @@
       <% end %>
       
 
-   <%= link_to "Back", "/appointments" %>
+   <%= link_to "Back", "/doctor_patients" %>
