@@ -2,12 +2,12 @@
 
 <p>
   <b>Doctor:</b>
-  <%= @appointment.doctor_id %>
+  <%= @appointment.doctor.first_name   if @appointment.doctor.first_name%>
 </p>
 
 <p>
   <b>Patient:</b>
-  <%= @appointment.patient_id %>
+  <%= @appointment.patient.first_name  if @appointment.patient.first_name%>
 </p>
 
 <p>
