@@ -10,11 +10,8 @@
      <div id="content"><!-- Wraps everything -->
           <div id="header"><!--The Header -->          
               <div class="page-width">
-             
- 
                   <h1> Family Practice </h1>
-                  
-			 <% if user_signed_in? %>  
+			 <% if user_signed_in? %>
               <div id="user-cp"> <!--User Control Panel -->                 
                     <ul>
                         <li> Welcome <em><%= current_user.email %> </em> </li> |
@@ -62,8 +59,12 @@
                               <a class="console" href="/users">Master Account</a>
                            </div>
                        <% end %>
-                   </div>
-                  
+                        <% if current_user.is_doctor? %>
+                           <div class="item <% if @select == "My Account" %> active <% end %>">
+                            <a class="console" href="/doctors/<%=current_user.id%>/edit">My Account</a>
+                           </div>
+                       <% end %>
+                    </div>
               </div>
          </div>
     </div>

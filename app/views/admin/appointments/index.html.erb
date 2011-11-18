@@ -9,8 +9,8 @@
            <th>Approval Status</th>
            <th></th>
          </tr>
-
-    <% @appointments.each do |appointment| %>
+    <% unless @appointments.nil?%>
+      <% @appointments.each do |appointment| %>
         <tr>
                <td><%= appointment.doctor.first_name %></td>
                <td><%= appointment.start_time.strftime('%b %e, %l:%M %p') %></td>
@@ -31,6 +31,7 @@
                  <%= link_to 'Destroy', "/admin/appointments/#{appointment.id}", :confirm => 'Are you sure?', :method => :delete %>
                </td>
            </tr>
+    <% end %>
     <% end %>
  </table>  <br />
 <%= link_to "New Appointment", new_admin_appointment_path%>
