@@ -1,0 +1,55 @@
+<h2>New Treatment Form</h2>
+
+<%= form_for(@treatment_form, :url => treatment_forms_path, :method => :post ) do |f| %>
+
+    <% if @treatment_form.errors.any? %>
+      <div id="error_explanation">
+         <ul>
+            <% @treatment_form.errors.full_messages.each do |msg| %>
+               <li><%= msg %></li>
+            <% end %>
+         </ul>
+      </div>
+    <% end %>
+    
+    
+    <div><label> Patient </patient><br />
+    <%= f.text_field :patient_id %></div>
+    
+    <div><%= f.label :date %><br />
+    <%= f.text_field :date %></div>
+    
+    <div><%= f.label :complaints %><br />
+    <%= f.text_field :complaints %></div>
+
+    <div><%= f.label :rating %><br />
+      <%= f.select :rating, options_for_select(%w(1 2 3 4 5 6 7 8 9 10)) %>
+    </div>
+
+    <div>
+       <label> Yes </label>
+       <input type="checkbox" id="treatment_form_aggravating_factors" name="treatment_form[aggravating_factors]" value="yes" />
+       <label> No </label>
+       <input type="checkbox" id="treatment_form_aggravating_factors" name="treatment_form[aggravating_factors]" value="no" />
+    </div>  
+    
+    <div><%= f.label :aggravating_factors_text %><br />
+      <%= f.text_field :aggravating_factors_text %>
+    </div>
+    
+    <div>
+       <label> Yes </label>
+       <input type="checkbox" id="treatment_form_new_injuries" name="treatment_form[new_injuries]" value="yes" />
+       <label> No </label>
+       <input type="checkbox" id="treatment_form_new_injuries" name="treatment_form[new_injuries]" value="no" />
+    </div>  
+
+    <div><%= f.label :new_injuries_text %><br />
+      <%= f.text_field :new_injuries_text %>
+    </div>
+     
+    <div>
+       <%= f.submit "Create" %> Or <%= link_to "Cancel", "/doctor_patients", :class => "cancel" %>
+    </div>
+ 
+<% end %>

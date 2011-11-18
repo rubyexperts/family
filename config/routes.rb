@@ -19,6 +19,7 @@ Family::Application.routes.draw do
   resources :uploads
   resources :doctors
   resources :accounts
+  resources :treatment_forms
  
   match "/users/sign_out" => "devise/sessions#destroy"
   match "/all_accounts" => "accounts#all_accounts"
