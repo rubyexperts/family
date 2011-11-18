@@ -13,10 +13,10 @@ class DoctorsController < ApplicationController
     def update
      @user = User.find(params[:id])
      @user.attributes = params[:doctor]
-     @user_detail = UserDetail.new(params[:user_detail])
-     if @user.valid? && @user_detail.valid?
-        @user_detail.user_id = @user.id
-        @user.save && @user_detail.save
+     @doctor_detail = DoctorDetail.new(params[:doctor_detail])
+     if @user.valid? && @doctor_detail.valid?
+        @doctor_detail.user_id = @user.id
+        @user.save && @doctor_detail.save
         redirect_to :action => "index"
      else
        render :edit
