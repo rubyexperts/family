@@ -1,6 +1,6 @@
 <h2>New Treatment Form</h2>
 
-<%= form_for(@treatment_form, :url => treatment_forms_path, :method => :post ) do |f| %>
+<%= form_for(@treatment_form, :url => treatment_form_path(@treatment_form), :method => :post ) do |f| %>
 
     <% if @treatment_form.errors.any? %>
       <div id="error_explanation">
@@ -50,7 +50,7 @@
     </div>
      
     <div>
-       <%= f.submit "Create" %> Or <%= link_to "Cancel", "/treatment_forms", :class => "cancel" %>
+       <%= f.submit "Update" %> Or <%= link_to "Cancel", "/treatment_forms", :class => "cancel" %>
     </div>
  
 <% end %>
