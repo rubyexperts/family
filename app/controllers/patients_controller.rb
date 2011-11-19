@@ -15,6 +15,7 @@ class PatientsController < ApplicationController
    # edit account for patient
    def edit
      @user = User.find(params[:id])
+     @select = "My Account"
    end
    
    # update account for patient
