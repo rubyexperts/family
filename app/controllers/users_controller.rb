@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
    before_filter :authenticate_user!
    before_filter :selected_tab, :only => [:create_master_account]
+   before_filter :select_tab, :except => [:create_master_account]
    layout 'default'
    
    def index
@@ -69,6 +70,10 @@ class UsersController < ApplicationController
    
    def selected_tab
      @select = "admin"
+   end
+   
+   def select_tab
+     @select = "My Account"
    end
 
   

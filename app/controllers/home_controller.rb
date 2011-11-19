@@ -2,10 +2,9 @@ class HomeController < ApplicationController
 
   before_filter :authenticate_user!
   
- # before_filter :selected_tab
+  before_filter :selected_tab
  
   def index
-    
     if current_user.is_admin?
       redirect_to "/admin"
     elsif current_user.is_doctor?
@@ -25,10 +24,6 @@ class HomeController < ApplicationController
     @select = "home"
   end
   
-  def update
-    raise "FFFF".inspect
-  end
- 
   def staff
   end
   
