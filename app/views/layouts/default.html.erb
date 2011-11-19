@@ -49,7 +49,7 @@
                             <a class="console" href="/all_accounts">Accounts</a>
                           </div>
                        <% end %>
-                       <% if current_user.is_doctor? current_user.is_doctor? %>
+                       <% if current_user.is_doctor? ||  current_user.is_nurse? %>
                            <div class="item <% if @select == "doctor_patients" %> active <% end %>">
                               <a class="console" href="/doctor_patients">MyPatients</a>
                            </div>                          
