@@ -1,11 +1,12 @@
 
 
-<p> This is Account users view </p>
+<h2> Users List View </h2>
 
-<table>
+<table  border="1" cellpadding="10" cellspacing="2" >
   <tr>
 	<th> Name </th>&nbsp;&nbsp;
-	<th> Email</th>	
+	<th> Email</th>
+  <th> Type</th>
 	<th></th>	
   </tr>
 
@@ -13,8 +14,9 @@
 
      <tr>
 	
-	     <td><%= user.first_name %></td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	     <td><%= user.name %></td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	     <td><%= user.email %></td>
+       <td><%= user.type %></td>
 	     <td>
 	         <%= link_to 'Edit', edit_account_path(user) %> |
 	         <a rel="nofollow" data-method="delete" data-confirm="Are you sure?" class="delete" href="/accounts/<%= user.id %>">Delete</a>
@@ -24,7 +26,7 @@
 	 
   <% end %>
   
-</table>
+</table><br/>
 
 
 <%= link_to 'New Account', new_account_path %>

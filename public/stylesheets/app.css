@@ -24,10 +24,11 @@ div.patient-pic{text-align:left;}
 }
 
 .headernav {
-  left: 420px;
+  left: 100px;
   position: absolute;
   top: 80px;
-  width: 660px !important;
+  width: 800px !important;
+  color: #169609
 }
 .headernav .item {
   height: auto !important;

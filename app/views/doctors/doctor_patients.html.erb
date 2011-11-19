@@ -1,8 +1,8 @@
 
 
-<p>
-    This is Doctors Patients Page
-</p>
+<h2>
+    My Patients List
+</h2>
 
 
 <% if @my_patients.nil? %>
@@ -11,11 +11,11 @@
       
 <% else %>
     
-     <table>
+     <table border="1" cellpadding="10" cellspacing="2">
          <tr>
             <th>Name</th>
             <th>Email</th>
-            <th></th>
+            
          </tr>
 
          <% @my_patients.each do |p| %>

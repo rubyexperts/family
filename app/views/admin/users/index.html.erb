@@ -1,5 +1,5 @@
 <br />
-<table>
+<table border="1" cellpadding="5" cellspacing="1">
   <tr>
     <th> Email</th>
     <th>Name </th>
@@ -24,7 +24,7 @@
     <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" class="delete" href="/admin/users/<%= user.id %>">Destroy</a></td>
  </tr>
 <% end %>
-</table>
+</table><br/>
 
 
 <%= link_to 'New User', new_admin_user_path %>
