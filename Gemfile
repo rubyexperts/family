@@ -12,8 +12,6 @@ gem 'jquery-rails', '1.0.12'
 
 gem 'carrierwave'
 
-gem 'acts_as_tree_rails3'
-
 # Use unicorn as the web server
 # gem 'unicorn'
 

@@ -28,7 +28,6 @@ GEM
       activemodel (= 3.0.7)
       activesupport (= 3.0.7)
     activesupport (3.0.7)
-    acts_as_tree_rails3 (0.1.0)
     arel (2.0.10)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
@@ -89,7 +88,6 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  acts_as_tree_rails3
   carrierwave
   devise (= 1.4.5)
   jquery-rails (= 1.0.12)
