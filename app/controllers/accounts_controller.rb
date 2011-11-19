@@ -20,7 +20,8 @@ class AccountsController < ApplicationController
 	  if @user.valid?
        @user.master_id = current_user.id
        @user.save
-	    redirect_to "/accounts"
+       flash[:notice]="New account is successfully created"
+	    redirect_to "/all_accounts"
 	  else
 	    render :action => :new
 	  end
@@ -42,7 +43,7 @@ class AccountsController < ApplicationController
    def destroy
      @user = User.find(params[:id])
      @user.destroy
-     redirect_to "/accounts"
+     redirect_to "/all_accounts"
    end 
 
    private

@@ -5,7 +5,6 @@ class HomeController < ApplicationController
  # before_filter :selected_tab
  
   def index
-    
     if current_user.is_admin?
       redirect_to "/admin"
     elsif current_user.is_doctor?
@@ -22,6 +21,7 @@ class HomeController < ApplicationController
   end
   
   def admin
+    flash[:notice]=" Logged in successfully"
     @select = "home"
   end
   

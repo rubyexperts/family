@@ -70,7 +70,8 @@
          </div>
     </div>
 <% end %>    
-<body> 
+<body>
+  <div id="notice" class ="notice"><%= flash[:notice] %></div>
 <%= yield %>
 
 </body>
