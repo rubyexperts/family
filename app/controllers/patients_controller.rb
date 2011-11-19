@@ -6,7 +6,7 @@ class PatientsController < ApplicationController
 
    def index
      #if current_user.is_complete?
-     flash[:notice]=" Logged in successfully"
+     #flash[:notice]=" Logged in successfully"
        @patients = Patient.find :all
      #else
        #redirect_to "/patients/#{current_user.id}/edit"

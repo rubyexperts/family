@@ -1,26 +1,15 @@
-
-
-<p>
-
-    This is Treatment Form Home Page 
+<h2>  My Treatments List</h2>
 <br/><br/>
    <% if current_user.is_doctor? %>
       <%= link_to "New Treatment Form", new_treatment_form_path %>
    <% end %>
-</p>
-
-
-
 <% unless @treatment_forms.empty? %>
-
  <table border="1" cellpadding="5" cellspacing="1">
-
         <tr>
            <th>Patient</th>
            <th>Date</th>
            <th>Complaints</th>
          </tr>
-
         <% @treatment_forms.each do |form| %>
            <tr>
                <td><%= form.patient.first_name %></td>

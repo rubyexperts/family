@@ -4,7 +4,7 @@ class DoctorsController < ApplicationController
     before_filter :selected_tab
 
     def index
-      flash[:notice]=" Logged in successfully"
+      #flash[:notice]=" Logged in successfully"
 	  end
 	   # edit account of doctors
     def edit

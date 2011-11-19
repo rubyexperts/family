@@ -21,7 +21,7 @@ class HomeController < ApplicationController
   end
   
   def admin
-    flash[:notice]=" Logged in successfully"
+    #flash[:notice]=" Logged in successfully"
     @select = "home"
   end
   

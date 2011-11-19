@@ -51,18 +51,18 @@
                        <% end %>
                        <% if current_user.is_doctor? %>
                            <div class="item <% if @select == "doctor_patients" %> active <% end %>">
-                              <a class="console" href="/doctor_patients">My Patients</a>
+                              <a class="console" href="/doctor_patients">MyPatients</a>
                            </div>                          
                            <div class="item <% if @select == "admin" %> active <% end %>">
                               <a class="console" href="/users">Master Accounts</a>
                            </div>
                            <div class="item <% if @select == "My Account" %> active <% end %>">
-                            <a class="console" href="/doctors/<%=current_user.id%>/edit">My Account</a>
+                            <a class="console" href="/doctors/<%=current_user.id%>/edit">MyAccount</a>
                            </div>
                        <% end %>
                        <% if current_user.is_doctor? || current_user.is_patient? %>
                            <div class="item <% if @select == "treatment_form" %> active <% end %>">
-                              <a class="console" href="/treatment_forms">Forms</a>
+                              <a class="console" href="/treatment_forms">Treatments</a>
                            </div>
                        <% end %>
                     </div>
