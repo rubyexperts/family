@@ -2,6 +2,7 @@ class TreatmentFormsController < ApplicationController
 
     before_filter :authenticate_user!
 	before_filter :selected_tab
+	before_filter :check_doctor, :only => [:new, :create, :edit, :update, :destroy]
 	
     def index
 	  @treatment_forms = TreatmentForm.find :all
@@ -54,6 +55,17 @@ class TreatmentFormsController < ApplicationController
 
 	def selected_tab
 	  @select =  "treatment_form"
+	end
+	
+	def check_doctor
+	  if current_user.is_doctor?
+	     has_access = true
+	  else
+	     has_access = false
+	  end
+	  if !has_access
+	    redirect_to "/treatment_forms"
+	  end
 	end
 
 

@@ -4,7 +4,9 @@
 
     This is Treatment Form Home Page 
 <br/><br/>
-    <%= link_to "New Treatment Form", new_treatment_form_path %>    
+   <% if current_user.is_doctor? %>
+      <%= link_to "New Treatment Form", new_treatment_form_path %>
+   <% end %>
 </p>
 
 
@@ -24,9 +26,11 @@
                <td><%= form.date.strftime('%b %d, %Y') %></td> 
                <td><%= form.complaints %></td>
                <td>
-                  <%= link_to 'Show',"/treatment_forms/#{form.id}" %> |
-                  <%= link_to 'Edit', edit_treatment_form_path(form) %> |
-                  <a rel="nofollow" data-method="delete" data-confirm="Are you sure?" class="delete" href="/treatment_forms/<%= form.id %>">Destroy</a>
+                  <%= link_to 'Show',"/treatment_forms/#{form.id}" %> 
+                  <% if current_user.is_doctor? %>
+                     | <%= link_to 'Edit', edit_treatment_form_path(form) %> |
+                     <a rel="nofollow" data-method="delete" data-confirm="Are you sure?" class="delete" href="/treatment_forms/<%= form.id %>">Destroy</a>
+                  <% end %>
                </td>
            </tr>
        <% end %>
