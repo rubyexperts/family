@@ -36,10 +36,6 @@ class User < ActiveRecord::Base
   def is_staff?
     self.type == "Staff"
   end
-
-  def is_nurse?
-    self.type == "Nurse"
-  end
   
   def is_company?
     self.type == "Company"
