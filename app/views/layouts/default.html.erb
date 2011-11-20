@@ -31,12 +31,18 @@ a:active {
                     <div class="email_box">
                          <div class="spacer3"></div>
                          <div class="email_boxtwo">
-                           <div style="width:260px; height:22px; float:left; overflow:hidden;"><strong>Welcome!</strong> <a href="mailto:rajib.doctor@gmail.com" style="color:#13a907;">|<%=current_user.name.capitalize%></a>&nbsp;&nbsp;<a href="" target="_blank" title="logout">&nbsp;&nbsp;
-                                   <img src="img/Family-Practice_logout_06.jpg" width="64" height="22" />
-                                </a>&nbsp;&nbsp;<%= link_to "Logout", destroy_user_session_path, :method => :delete, :style=>"color:red;" %></div>
-                             <div style="width:64px; height:22px; float:left; overflow:hidden;">
-                                
-                             </div>
+                           <div style="width:260px; height:22px; float:left; overflow:hidden;">
+                                <strong>Welcome!</strong> 
+                                <a href="mailto:<%= current_user.email %>" style="color:#13a907;">
+                                   <%= current_user.email %>
+                                </a>
+                           </div>
+                           <div style="width:64px; height:22px; float:left; overflow:hidden;">
+                               <a href="/users/sign_out">
+                                  <img src="images/Family-Practice_logout_06.jpg" width="64" height="22" />
+                                  Logout
+                               </a>
+                           </div>
                          </div>
                     </div>
                </div> <!--.....logo_header_ends.......-->
