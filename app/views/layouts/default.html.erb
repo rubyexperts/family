@@ -31,17 +31,17 @@ a:active {
                     <div class="email_box">
                          <div class="spacer3"></div>
                          <div class="email_boxtwo">
-                           <div style="width:260px; height:22px; float:left; overflow:hidden;">
+                           <div style="width:290px; height:22px; float:left; overflow:hidden;">
                                 <strong>Welcome!</strong> 
                                 <a href="mailto:<%= current_user.email %>" style="color:#13a907;">
                                    <%= current_user.email %>
+                                </a> &nbsp;&nbsp;
+                                <a href="/users/sign_out">
+                                  <img src="images/Family-Practice_logout_06.jpg" width="64" height="22" />
+                                  Logout
                                 </a>
                            </div>
                            <div style="width:64px; height:22px; float:left; overflow:hidden;">
-                               <a href="/users/sign_out">
-                                  <img src="images/Family-Practice_logout_06.jpg" width="64" height="22" />
-                                  Logout
-                               </a>
                            </div>
                          </div>
                     </div>
