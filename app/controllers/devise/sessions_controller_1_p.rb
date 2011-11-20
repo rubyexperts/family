@@ -1,10 +1,9 @@
-class Devise::SessionsController < ApplicationController
+class Devise::SessionsController_1_p < ApplicationController
   prepend_before_filter :require_no_authentication, :only => [ :new, :create ]
   include Devise::Controllers::InternalHelpers
 
   # GET /resource/sign_in
   def new
-    @select = "sign_in"
     resource = build_resource
     clean_up_passwords(resource)
     respond_with_navigational(resource, stub_options(resource)){ render_with_scope :new }
@@ -15,7 +14,6 @@ class Devise::SessionsController < ApplicationController
     resource = warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#new")
     set_flash_message(:notice, :signed_in) if is_navigational_format?
     sign_in(resource_name, resource)
-    flash[:notice]="Logged in successfully"
     respond_with resource, :location => redirect_location(resource_name, resource)
   end
 
