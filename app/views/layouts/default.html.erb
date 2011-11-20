@@ -4,38 +4,39 @@
   <title>Family Practice</title>
   <%= stylesheet_link_tag :all, 'app', 'facebox', 'jquery.ui.all' %>
   <%= javascript_include_tag :defaults, 'jquery.ui.core', 'jquery.ui.datepicker' %>
-  <%= csrf_meta_tag %>  
+  <%= csrf_meta_tag %>
 </head>
-    
+<body>
      <div id="content"><!-- Wraps everything -->
-          <div id="header"><!--The Header -->          
+          <div id="header"><!--The Header -->
               <div class="page-width">
                   <h1> Family Practice </h1>
-			 <% if user_signed_in? %>
-              <div id="user-cp"> <!--User Control Panel -->                 
-                    <ul>
-                        <li> Welcome <em><%= current_user.email %> </em> </li> |
-                        <li>&nbsp;<%= link_to "Logout", destroy_user_session_path, :method => :delete %></li> 
-                    </ul>
-              </div>
-              <div class="console_header">
-              </div>
-              
-              <div class="headernav">
-                       <div class="item <% if @select == "home" %> active <% end %>">
-                          <a class="console" href="/home">Home</a>
-                       </div>
-                       <% if current_user.is_patient? %>
-                           <div class="item <% if @select == "My Account" %> active <% end %>">
+                  <% if user_signed_in? %>
+                  <div id="user-cp"> <!--User Control Panel -->
+                       <ul>
+                           <li> Welcome <em><%= current_user.email %> </em> </li> |
+                           <li>&nbsp;<%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+                       </ul>
+                  </div>
+                  
+                  <div class="console_header">
+                  </div>
+ 
+                  <div class="headernav">
+                        <div class="item <% if @select == "home" %> active <% end %>">
+                           <a class="console" href="/home">Home</a>
+                        </div>
+                        <% if current_user.is_patient? %>
+                            <div class="item <% if @select == "My Account" %> active <% end %>">
                               <a class="console" href="/patients/<%=current_user.id%>/edit">My Account</a>
                            </div>
-                       <% end %>
-                       <% if current_user.is_patient? || current_user.is_doctor? %>
+                        <% end %>
+                        <% if current_user.is_patient? || current_user.is_doctor? %>
                           <div class="item <% if @select == "appointment" %> active <% end %>">
                              <a class="console" href="/appointments">Appointments</a>
                           </div>
-                       <% end %>
-                       <% if current_user.is_admin? %>
+                        <% end %>
+                        <% if current_user.is_admin? %>
                           <!--div class="item active "-->
                             <div class="item  <% if @select == "/admin/users" %> active <% end %>">
                             <a class="console" href="/admin/users">Users</a>
@@ -43,16 +44,16 @@
                          <div class="item  <% if @select == "/admin/appointments" %> active <%  end %>">
                             <a class="console" href="/admin/appointments">Appointments</a>
                           </div>
-                       <% end %>
-                       <% if current_user.is_account_user? %>
+                        <% end %>
+                        <% if current_user.is_account_user? %>
                           <div class="item <% if @select == "accounts" %> active <% end %>">
                             <a class="console" href="/all_accounts">Accounts</a>
                           </div>
-                       <% end %>
-                       <% if current_user.is_doctor? ||  current_user.is_nurse? %>
+                        <% end %>
+                        <% if current_user.is_doctor? %>
                            <div class="item <% if @select == "doctor_patients" %> active <% end %>">
                               <a class="console" href="/doctor_patients">MyPatients</a>
-                           </div>                          
+                           </div>
                            <div class="item <% if @select == "admin" %> active <% end %>">
                               <a class="console" href="/users">Master Accounts</a>
                            </div>
@@ -65,34 +66,21 @@
                               <a class="console" href="/treatment_forms">Treatments</a>
                            </div>
                        <% end %>
-                    </div>
+            <% end %>
+                    </div><!-- Header nav ends -->
+	                  <div id="notice" class ="notice"><%= flash[:notice] %></div>
+               </div> <!-- Page width div ends --> <br/>
+
+<body>
+
               </div>
          </div>
     </div>
-<% else %>
-              <div class="console_header">
-              </div>
 
-              <div class="headernav">
-                   <div class="item <% if @select == "sign_in" %> active <% end %>">
-                       <%= link_to "Sign in", new_session_path(resource_name) %>
-                   </div>
-                   <div class="item <% if @select == "sign_up" %> active <% end %>">
-                       <%= link_to "Sign up", new_registration_path(resource_name) %>
-                   </div>
-                   <div class="item <% if @select == "forgot_password" %> active <% end %>">
-                      <%= link_to "Forgot your password?", new_password_path(resource_name) %>                      
-                   </div>
-              </div>
-<% end %>
-	<div id="notice" class ="notice"><%= flash[:notice] %></div>
-</div>
-<br/>
-<body>
-  <div id="notice" class ="notice"><%= flash[:notice] %></div> 
 <%= yield %>
 
 </body>
 </html>
+
 
 

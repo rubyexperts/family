@@ -5,6 +5,6 @@ development:
   port: 3307
   encoding: utf8
   database: family_development
-  username: dipin 
-  password: dipin
+  username: root 
+  password: 
   host: localhost

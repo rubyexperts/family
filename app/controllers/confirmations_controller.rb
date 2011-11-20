@@ -1,6 +1,6 @@
 class Devise::ConfirmationsController < ApplicationController
   include Devise::Controllers::InternalHelpers
-  layout 'default'
+  layout 'login'
 
   # GET /resource/confirmation/new
   def new
