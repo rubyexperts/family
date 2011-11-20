@@ -2,6 +2,7 @@ class DoctorsController < ApplicationController
 
     before_filter :authenticate_user!
     before_filter :selected_tab
+    layout 'default'
 
     def index
       #flash[:notice]=" Logged in successfully"

@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
 
-  before_filter :authenticate_user!
-  
+  before_filter :authenticate_user!  
   before_filter :selected_tab
+  layout 'default'
  
   def index
     if current_user.is_admin?

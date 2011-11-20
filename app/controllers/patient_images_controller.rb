@@ -3,6 +3,7 @@ class PatientImagesController < ApplicationController
   # GET /patient_images.xml
 
   before_filter :authenticate_user!
+  layout 'default'
 
   def index
     @patient_images = PatientImage.all
