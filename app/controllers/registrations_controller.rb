@@ -1,5 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   prepend_view_path "app/views/devise"
+  layout 'default'
 	 
     def new
 	   super
