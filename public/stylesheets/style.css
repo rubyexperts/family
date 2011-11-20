@@ -1,6 +1,6 @@
 body
 {
-	background:url(../img/Family-Practice_01.jpg) repeat-x #e2e2e2;
+	background:url(/images/Family-Practice_01.jpg) repeat-x #e2e2e2;
 	margin:auto;
 	overflow-x:hidden;
 }
@@ -44,7 +44,7 @@ body
 
 .logo
 {
-	background:url(../img/Family-Practice_logo_03.jpg);
+	background:url(/images/Family-Practice_logo_03.jpg);
 	width:343px;
 	height:63px;
 	float:left;
@@ -98,7 +98,7 @@ body
 #topNav{
 	width:1002px; height:50px; margin:0 0 0 0; float:left;}
 #topNav ul{
-	width:1000px; margin:0 0 0 295px; float:left;}
+	width:1000px; margin:0 0 0 12px; float:left;}
 #topNav ul li{
 	float:left; text-transform:uppercase; padding:0 0px 0 0;
 	color:#FFFFFF;
@@ -230,7 +230,7 @@ body
 
 .personal_details
 {
-	background:url(../img/Family-Practice_personal_meet_08.jpg);
+	background:url(/images/Family-Practice_personal_meet_08.jpg);
 	width:613px;
 	height:33px;
 	float:left;
@@ -283,7 +283,7 @@ body
 
 .contact_details
 {
-	background:url(../img/Family-Practice_contact_details_11.jpg);
+	background:url(/images/Family-Practice_contact_details_11.jpg);
 	width:613px;
 	height:33px;
 	float:left;
@@ -334,7 +334,7 @@ body
 
 .educat_details
 {
-	background:url(../img/Family-Practice_education_13.jpg);
+	background:url(/images/Family-Practice_education_13.jpg);
 	width:613px;
 	height:35px;
 	float:left;

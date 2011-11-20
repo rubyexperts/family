@@ -5,6 +5,20 @@
   <%= stylesheet_link_tag :all, 'app', 'style', 'css', 'facebox', 'jquery.ui.all' %>
   <%= javascript_include_tag :defaults, 'jquery.ui.core', 'jquery.ui.datepicker' %>
   <%= csrf_meta_tag %>
+  <style type="text/css">
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: none;
+}
+</style>
 </head>
 <body>
      <div class="wrapper"> <!--.....header_starts.......-->
@@ -17,14 +31,11 @@
                     <div class="email_box">
                          <div class="spacer3"></div>
                          <div class="email_boxtwo">
-                             <div style="width:260px; height:22px; float:left; overflow:hidden;">
-                                 <strong>Welcome!</strong> 
-                                 email: <a href="mailto:rajib.doctor@gmail.com" style="color:#13a907;"><%= current_user.email %></a>
-                             </div>
-                             <div style="width:64px; height:22px; float:left; overflow:hidden;">
-                                <a href="" target="_blank" title="logout">
+                           <div style="width:260px; height:22px; float:left; overflow:hidden;"><strong>Welcome!</strong> <a href="mailto:rajib.doctor@gmail.com" style="color:#13a907;">|<%=current_user.name.capitalize%></a>&nbsp;&nbsp;<a href="" target="_blank" title="logout">&nbsp;&nbsp;
                                    <img src="img/Family-Practice_logout_06.jpg" width="64" height="22" />
-                                </a>
+                                </a>&nbsp;&nbsp;<%= link_to "Logout", destroy_user_session_path, :method => :delete, :style=>"color:red;" %></div>
+                             <div style="width:64px; height:22px; float:left; overflow:hidden;">
+                                
                              </div>
                          </div>
                     </div>
@@ -43,7 +54,7 @@
               </div> <!-- main menu pannel end -->
           </div> <!--.....header_ends.......-->
      </div>               
-
+  <br /><br /><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <%= yield %>
 
 </body>
