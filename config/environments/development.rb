@@ -22,6 +22,6 @@ Family::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' } 
+  config.action_mailer.default_url_options = { :host => '66.135.33.230:9999' }
 end
 
