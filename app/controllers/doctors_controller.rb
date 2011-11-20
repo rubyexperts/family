@@ -9,6 +9,7 @@ class DoctorsController < ApplicationController
 	   # edit account of doctors
     def edit
        @user = User.find(params[:id])
+       @select ="My Account"
     end
 
     def update
