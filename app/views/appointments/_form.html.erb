@@ -21,9 +21,9 @@
                     <div class="titlebox_two"> <%= f.collection_select :doctor_id, Doctor.find(:all, :order => "first_name"), :id, :first_name, {:include_blank => "Select Doctor"}, {"style" => "width:250px" } %> </div>
                  </div>
                  <div class="birth_titlebox_starts">
-					          <div class="birth_titlebox_one"> <%= f.label :start_time %> </div>
-						        <div class="birth_titlebox_two"> <%= f.datetime_select :start_time %> </div>
-					       </div>
+					<div class="birth_titlebox_one"> <%= f.label :start_time %> </div>
+					<div class="birth_titlebox_two"> <%= f.datetime_select :start_time %> </div>
+				 </div>
                  <div class="birth_titlebox_starts">
                     <div class="birth_titlebox_one"> <%= f.label :end_time %> </div>
                     <div class="birth_titlebox_two"> <%= f.datetime_select :end_time %> </div>
