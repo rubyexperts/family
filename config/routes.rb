@@ -1,10 +1,11 @@
-Family::Application.routes.draw do
-
+Family::Application.routes.draw do  
+  
   namespace :admin do
-  resources :users
-  resources :appointments
- end
-  devise_for :users
+    resources :users
+    resources :appointments
+  end
+  
+  devise_for :users 
   devise_for :doctors
   devise_for :patients
   devise_for :admin
@@ -20,6 +21,7 @@ Family::Application.routes.draw do
   resources :doctors
   resources :accounts
   resources :treatment_forms
+  resources :invitations
  
   match "/users/sign_out" => "devise/sessions#destroy"
   match "/all_accounts" => "accounts#all_accounts"

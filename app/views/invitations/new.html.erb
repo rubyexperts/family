@@ -1,0 +1,14 @@
+
+<h1>Invitations#new</h1>
+<%= form_tag(:invitations, :method => "post") do %>
+  <div >
+  <%= label_tag(:q, "Email Adress:") %>
+  <%= text_field_tag(:q) %>
+  <%= label_tag(:z, "Type:") %>
+  <%= select_tag :z, "<option>Doctor</option><option>Patient</option><option>Nurse</option><option>Staff</option>".html_safe %>
+  </div>
+   <div class="actions">
+    <%= submit_tag("SendMail") %>
+   </div>
+ <% end %>
+</div>

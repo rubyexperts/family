@@ -16,5 +16,8 @@ class UserMailer < ActionMailer::Base
       mail(:to => @patient.email, :subject => "Appointment Approved")
    end
   
+  def welcome_email(name)
+    mail(:to=>name[:email],:subject=>"You are Invited as #{name[:type]}")
+  end
   
 end

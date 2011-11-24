@@ -83,6 +83,9 @@
                    <div class="item <% if @select == "forgot_password" %> active <% end %>">
                       <%= link_to "Forgot your password?", new_password_path(resource_name) %>                      
                    </div>
+                   <div class="item <% if @select == "Invitation" %> active <% end %>">
+                      <%= link_to "Invitations", new_invitation_path %>                      
+                   </div>
               </div>
 <% end %>
 
