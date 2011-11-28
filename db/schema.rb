@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111118191241) do
+ActiveRecord::Schema.define(:version => 20111122181201) do
 
   create_table "appointments", :force => true do |t|
     t.integer  "doctor_id"
@@ -59,6 +59,12 @@ ActiveRecord::Schema.define(:version => 20111118191241) do
   create_table "patient_images", :force => true do |t|
     t.string   "image"
     t.integer  "patient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sites", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -124,6 +130,7 @@ ActiveRecord::Schema.define(:version => 20111118191241) do
     t.string   "office_number"
     t.string   "company_name"
     t.integer  "master_id"
+    t.integer  "site_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

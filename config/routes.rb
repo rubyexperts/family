@@ -1,9 +1,10 @@
 Family::Application.routes.draw do
 
   namespace :admin do
-  resources :users
-  resources :appointments
- end
+    resources :users
+    resources :appointments
+  end
+  
   devise_for :users
   devise_for :doctors
   devise_for :patients
@@ -20,6 +21,7 @@ Family::Application.routes.draw do
   resources :doctors
   resources :accounts
   resources :treatment_forms
+  resources :clinics
  
   match "/users/sign_out" => "devise/sessions#destroy"
   match "/all_accounts" => "accounts#all_accounts"
@@ -29,7 +31,7 @@ Family::Application.routes.draw do
   match '/create_master_account' => 'users#create_master_account'
   match '/appointment_approve/:id' => 'appointments#appointment_approve', :as => :appointment_approve
   
-  match '/admin' => 'home#admin', :as => :admin
+ # match '/admin' => 'home#admin', :as => :admin
   match '/staff' => 'home#staff', :as => :staff
   match '/company' => 'home#company', :as => :company
   match '/download/:id' => 'uploads#download', :as => :download 
@@ -40,7 +42,12 @@ Family::Application.routes.draw do
     root :to => "home#index"
   end
   
+  constraints(:subdomain => "admin") do
+     root :to => "clinics#index"
+     match '/admin' => redirect("/clinics")   
+  end
+    
   # default root file
-  root :to => "home#index"  
+  root :to => "home#index"
 
 end

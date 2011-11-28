@@ -4,6 +4,6 @@ class AddColumnToUpload < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :uploads,:user_id,:integer
+    remove_column :uploads, :user_id
   end
 end
