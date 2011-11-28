@@ -44,6 +44,7 @@ Family::Application.routes.draw do
   
   constraints(:subdomain => "admin") do
      root :to => "clinics#index"
+     match '/' => 'clinics#index'
      match '/admin' => redirect("/clinics")   
   end
     

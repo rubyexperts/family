@@ -1,6 +1,7 @@
 class ClinicsController < ApplicationController
   
     before_filter :authenticate_user!
+    before_filter :find_permission, :except => [:index]
 	layout 'admin'
     
 	def index
@@ -34,4 +35,14 @@ class ClinicsController < ApplicationController
 	def update
 	end
 	
+	private
+	
+	def find_permission
+	  if @current_school.subdomain == "admin"
+	    has_permission = true
+	  end
+	  unless has_permission
+	    redirect '/'
+	  end
+    end
 end
