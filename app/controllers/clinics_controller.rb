@@ -37,12 +37,13 @@ class ClinicsController < ApplicationController
 	
 	private
 	
-	def find_permission
-	  if @current_school.subdomain == "admin"
+    def find_permission
+	  if @current_site.name == "admin"
 	    has_permission = true
 	  end
 	  unless has_permission
-	    redirect '/'
+	    redirect_to '/'
 	  end
-    end
+    end	
+  
 end
