@@ -2,6 +2,7 @@ class AccountsController < ApplicationController
 
    before_filter :authenticate_user!
    before_filter :selected_tab, :only => [:all_accounts]
+   layout 'default'
 
    def index
      @select = "home"

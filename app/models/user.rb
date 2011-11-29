@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+   
+  belongs_to :site
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -16,6 +18,14 @@ class User < ActiveRecord::Base
   validates_presence_of :title, :if => :title
   validates_presence_of :address, :if => :address
   validates_presence_of :home_number, :if => :home_number
+  
+  validates_uniqueness_of :email, :scope => :site_id, :case_sensitive => false 
+  
+  # authentication based on subdomain
+  def self.find_for_authentication(conditions={})
+     site = Site.where('name = ?', conditions[:subdomain]).first
+     self.find_by_email_and_site_id(conditions[:email], site.id)
+  end
 
   def name
     first_name + " " + last_name

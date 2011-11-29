@@ -1,4 +1,7 @@
 class Admin::AppointmentsController < ApplicationController
+
+  layout 'default'
+  
   def index
     @appointments =  Appointment.all
     @select = "/admin/appointments"

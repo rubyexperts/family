@@ -2,6 +2,7 @@ class DoctorsController < ApplicationController
 
     before_filter :authenticate_user!
     before_filter :selected_tab
+    layout 'default'
 
     def index
       #flash[:notice]=" Logged in successfully"
@@ -9,6 +10,7 @@ class DoctorsController < ApplicationController
 	   # edit account of doctors
     def edit
        @user = User.find(params[:id])
+       @select ="My Account"
     end
 
     def update

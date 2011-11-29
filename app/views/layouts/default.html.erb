@@ -2,98 +2,87 @@
 <html>
 <head>
   <title>Family Practice</title>
-  <%= stylesheet_link_tag :all, 'app', 'facebox', 'jquery.ui.all' %>
+  <%= stylesheet_link_tag :all, 'app', 'style', 'css', 'facebox', 'jquery.ui.all' %>
   <%= javascript_include_tag :defaults, 'jquery.ui.core', 'jquery.ui.datepicker' %>
-  <%= csrf_meta_tag %>  
+  <%= csrf_meta_tag %>
+  <style type="text/css">
+a:link {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:active {
+    text-decoration: none;
+}
+</style>
 </head>
-    
-     <div id="content"><!-- Wraps everything -->
-          <div id="header"><!--The Header -->          
-              <div class="page-width">
-                  <h1> Family Practice </h1>
-			 <% if user_signed_in? %>
-              <div id="user-cp"> <!--User Control Panel -->                 
-                    <ul>
-                        <li> Welcome <em><%= current_user.email %> </em> </li> |
-                        <li>&nbsp;<%= link_to "Logout", destroy_user_session_path, :method => :delete %></li> 
-                    </ul>
-              </div>
-              <div class="console_header">
-              </div>
-              
-              <div class="headernav">
-                       <div class="item <% if @select == "home" %> active <% end %>">
-                          <a class="console" href="/home">Home</a>
-                       </div>
-                       <% if current_user.is_patient? %>
-                           <div class="item <% if @select == "My Account" %> active <% end %>">
-                              <a class="console" href="/patients/<%=current_user.id%>/edit">My Account</a>
-                           </div>
-                       <% end %>
-                       <% if current_user.is_patient? || current_user.is_doctor? %>
-                          <div class="item <% if @select == "appointment" %> active <% end %>">
-                             <a class="console" href="/appointments">Appointments</a>
-                          </div>
-                       <% end %>
-                       <% if current_user.is_admin? %>
-                          <!--div class="item active "-->
-                            <div class="item  <% if @select == "/admin/users" %> active <% end %>">
-                            <a class="console" href="/admin/users">Users</a>
-                           </div>
-                         <div class="item  <% if @select == "/admin/appointments" %> active <%  end %>">
-                            <a class="console" href="/admin/appointments">Appointments</a>
-                          </div>
-                       <% end %>
-                       <% if current_user.is_account_user? %>
-                          <div class="item <% if @select == "accounts" %> active <% end %>">
-                            <a class="console" href="/all_accounts">Accounts</a>
-                          </div>
-                       <% end %>
-                       <% if current_user.is_doctor? ||  current_user.is_nurse? %>
-                           <div class="item <% if @select == "doctor_patients" %> active <% end %>">
-                              <a class="console" href="/doctor_patients">MyPatients</a>
-                           </div>                          
-                           <div class="item <% if @select == "admin" %> active <% end %>">
-                              <a class="console" href="/users">Master Accounts</a>
-                           </div>
-                           <div class="item <% if @select == "My Account" %> active <% end %>">
-                            <a class="console" href="/doctors/<%=current_user.id%>/edit">MyAccount</a>
-                           </div>
-                       <% end %>
-                       <% if current_user.is_doctor? || current_user.is_patient? %>
-                           <div class="item <% if @select == "treatment_form" %> active <% end %>">
-                              <a class="console" href="/treatment_forms">Treatments</a>
-                           </div>
-                       <% end %>
-                    </div>
-              </div>
-         </div>
-    </div>
-<% else %>
-              <div class="console_header">
-              </div>
-
-              <div class="headernav">
-                   <div class="item <% if @select == "sign_in" %> active <% end %>">
-                       <%= link_to "Sign in", new_session_path(resource_name) %>
-                   </div>
-                   <div class="item <% if @select == "sign_up" %> active <% end %>">
-                       <%= link_to "Sign up", new_registration_path(resource_name) %>
-                   </div>
-                   <div class="item <% if @select == "forgot_password" %> active <% end %>">
-                      <%= link_to "Forgot your password?", new_password_path(resource_name) %>                      
-                   </div>
-                   <div class="item <% if @select == "Invitation" %> active <% end %>">
-                      <%= link_to "Invitations", new_invitation_path %>                      
-                   </div>
-              </div>
-<% end %>
-
 <body>
-  <div id="notice" class ="notice"><%= flash[:notice] %></div>
-<%= yield %>
+     <div class="wrapper"> <!--.....header_starts.......-->
+          <div class="header"> <!--.....logo_header_starts.......-->
+               <div class="logo_header">
+                    <div class="spacer"></div>
+                    <div class="spacer1"></div>
+                    <div class="logo"></div>
+                    <div class="spacer2"></div>
+                    <div class="email_box">
+                         <div class="spacer3"></div>
+                         <div class="email_boxtwo">
+                           <div style="width:290px; height:22px; float:left; overflow:hidden;">
+                                <strong>Welcome!</strong> 
+                                <a href="mailto:<%= current_user.email %>" style="color:#13a907;">
+                                   <%= current_user.email %>
+                                </a> &nbsp;&nbsp;
+                                <a href="/users/sign_out">
+                                  <img src="/images/Family-Practice_logout_06.jpg" width="64" height="22" />
+                                  Logout
+                                </a>
+                           </div>
+                           <div style="width:64px; height:22px; float:left; overflow:hidden;">
+                           </div>
+                         </div>
+                    </div>
+               </div> <!--.....logo_header_ends.......-->
+               <div class="menu">
+                    <div id="topNav">
+                        <ul style="list-style:none;">
+                            <li><a href="/home">Home</a> </li>
+                            <li><a href="/appointments">Appointments</a> </li>
+                            <li><a href="/doctor_patients">MyPatients</a></li>
+                            <li><a href="/users">Master Accounts</a></li>
+                            <li><a href="/patients/<%=current_user.id%>/edit">My Account</a></li>
+                            <li><a href="/treatment_forms">Forms</a></li>
+                        </ul>
+                    </div>  <!-- top navigation pannel end -->
+              </div> <!-- main menu pannel end -->
+          </div> <!--.....header_ends.......-->
+     </div>               
+  <br /><br /><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <div class="mid_container">
+
+<div class="spacer4"></div>
+
+
+
+   <%= yield %>
+
+<div class="spacer8"></div>
+
+<div class="fotter_copy">©2011 Family Practice l Terms & Privacy</div>
+
+
+
+
+<!--.....mid_container_ends.......-->
+
+</div>
 
 </body>
+
 </html>
 
 

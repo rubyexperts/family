@@ -1,7 +1,7 @@
 class Devise::PasswordsController < ApplicationController
   prepend_before_filter :require_no_authentication
   include Devise::Controllers::InternalHelpers
-  layout 'default'
+  layout 'login'
 
   # GET /resource/password/new
   def new

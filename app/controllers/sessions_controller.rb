@@ -1,7 +1,7 @@
 class Devise::SessionsController < ApplicationController
   prepend_before_filter :require_no_authentication, :only => [ :new, :create ]
   include Devise::Controllers::InternalHelpers
-  layout 'default'
+  layout 'login'
 
   # GET /resource/sign_in
   def new

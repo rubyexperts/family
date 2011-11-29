@@ -49,13 +49,13 @@ div.patient-pic{text-align:left;}
 .headernav a:hover {
   color: #61D92E;
 }
-.headernav .item.active a {
-  background: none repeat scroll 0 0 #FFFFFF;
+.menu .item.active a {
+  background: none repeat scroll 0 0 blue;
   color: #32A800;
 }
 
-.headernav .item.active a {
-  background: none repeat scroll 0 0 #FFFFFF;
+.menu .item.active a {
+  background: none repeat scroll 0 0 blue;
   color: #32A800;
 }
 

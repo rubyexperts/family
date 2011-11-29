@@ -3,6 +3,7 @@ class AppointmentsController < ApplicationController
   # GET /appointments.xml
    before_filter :authenticate_user!
    before_filter :selected_tab
+   layout 'default'
   
   def index
     if current_user.is_patient?

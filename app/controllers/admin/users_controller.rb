@@ -1,6 +1,8 @@
 class Admin::UsersController < ApplicationController
   # GET /admin/users
   # GET /admin/users.xml
+  layout 'default'
+  
   def index
     @users = User.all
     @select = "/admin/users"

@@ -3,6 +3,7 @@ class TreatmentFormsController < ApplicationController
     before_filter :authenticate_user!
 	before_filter :selected_tab
 	before_filter :check_doctor, :only => [:new, :create, :edit, :update, :destroy]
+	layout 'default'
 	
     def index
 	  @treatment_forms = TreatmentForm.find :all

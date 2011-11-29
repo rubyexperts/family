@@ -4,6 +4,6 @@ class AddApproveField < ActiveRecord::Migration
   end
 
   def self.down
-    add_column :appointments, :approve_status
+    remove_column :appointments, :approve_status
   end
 end
