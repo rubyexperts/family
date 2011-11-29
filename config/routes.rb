@@ -37,6 +37,7 @@ Family::Application.routes.draw do
   match '/company' => 'home#company', :as => :company
   match '/download/:id' => 'uploads#download', :as => :download 
 
+  match '/send_invitation' => 'invitations#send_invitation'
 
   # Redirection after sign_up page
   namespace :user do
