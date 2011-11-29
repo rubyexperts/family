@@ -46,4 +46,11 @@ Family::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  # Site URL 
+  config.after_initialize do
+    Configuration.site_link = '66.135.33.230:9006'
+  end
+  
+  
 end
