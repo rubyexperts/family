@@ -1,6 +1,16 @@
 
 <h2>Sign up</h2>
 
+<% if @site.errors.any? %>
+   <div id="error_explanation">
+       <ul>
+           <% @site.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+           <% end %>
+       </ul>
+   </div>
+<% end %>
+
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
@@ -16,14 +26,20 @@
   <div><%= f.label :password %><br />
   <%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-       <%= f.password_field :password_confirmation %></div>
   <div>
-     <%= f.label :type %><br />
-     <%= f.select :type, options_for_select(%w(AccountUser Company Doctor Patient)) %>
-  </div> <br />
+       <%= f.label :password_confirmation %><br />
+       <%= f.password_field :password_confirmation %>
+  </div>
   
-  <div><%= f.submit "Sign up" %></div>
+  <%#= fields_for @site do |site| %>
+    <div>
+       <%#= f.label :type %> URL <br />
+       <%#= f.select :type, options_for_select(%w(AccountUser Company Doctor Patient)) %>
+       http:// <input type="text" maxlength="75" id="site_name" name="site[name]" class="short" /> .familypractice.com 
+    </div> <br />
+  <%# end %>
+  
+  <div><%= f.submit "Sign up" %> Or <span class="cancel"> <%= link_to 'Cancel', "/users/sign_in" %> </span></div>
   
 <% end %>
 
