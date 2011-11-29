@@ -17,7 +17,13 @@ class UserMailer < ActionMailer::Base
    end
   
   def welcome_email(name)
-    mail(:to=>name[:email],:subject=>"You are Invited as #{name[:type]}")
+    mail(:to => name[:email], :subject=> "You are Invited as #{name[:type]}")
   end
+  
+  def welcome_invitation(email, type)
+    @email = email
+    @type = type
+    mail(:to => @email, :subject => "You are Invited as #{@type}")
+  end  
   
 end
