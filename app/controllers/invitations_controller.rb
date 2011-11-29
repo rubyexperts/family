@@ -15,8 +15,10 @@ class InvitationsController < ApplicationController
        UserMailer.welcome_invitation(email, user_type).deliver
      end
      if user_signed_in?
+       flash[:notice] = "The Invitation has been sent. Please check the mail to see it"
        redirect_to "/clinics", :layout => 'admin'
      else
+       flash[:notice] = "The Invitation has been sent. Please check the mail to see it"
        redirect_to "/users/sign_in", :layout => 'login' 
      end
    end   
