@@ -6,8 +6,9 @@ class DoctorsController < ApplicationController
 
     def index
       #flash[:notice]=" Logged in successfully"
-	  end
-	   # edit account of doctors
+	end
+        
+	# edit account of doctors
     def edit
        @user = User.find(params[:id])
        @select ="My Account"
@@ -27,8 +28,12 @@ class DoctorsController < ApplicationController
     end
     
 	def doctor_patients
-	  @select = "doctor_patients"
-	  @my_patients = DoctorPatient.where('doctor_id= ?', current_user.id)
+      if current_user.is_doctor?
+	    @select = "doctor_patients"
+	    @my_patients = DoctorPatient.where('doctor_id= ?', current_user.id)
+      else
+        redirect_to "/"
+      end
 	end
 	
     private
