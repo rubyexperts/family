@@ -8,10 +8,11 @@ class InvitationsController < ApplicationController
    end
 
    def create
-     user_type = params[:z]
+     #user_type = params[:z]
      email_addresses = params[:q].split(',')
      email_addresses.each do |email|
-       UserMailer.welcome_invitation(email, user_type).deliver
+       #UserMailer.welcome_invitation(email, user_type).deliver
+       UserMailer.welcome_invitation(email).deliver
      end
      if user_signed_in?
        flash[:notice] = "The Invitation has been sent. Please check the mail to see it"
