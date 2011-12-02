@@ -25,6 +25,7 @@ class DoctorsController < ApplicationController
        render :edit
      end
     end
+    
 	def doctor_patients
 	  @select = "doctor_patients"
 	  @my_patients = DoctorPatient.where('doctor_id= ?', current_user.id)
