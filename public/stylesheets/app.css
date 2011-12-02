@@ -3,6 +3,8 @@
 .clear{clear:both; height:0;font-size: 1px;line-height: 0px;}
 .cancel{color:red;}
 
+.subText{color:#666;}
+
 .approved {color:#169609!important; background:#fff}
 .pending {color:red!important; background:#fff}
 
