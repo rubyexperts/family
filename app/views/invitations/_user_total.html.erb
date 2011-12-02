@@ -1,0 +1,59 @@
+             <% if @user_detail %>
+               <% if @user_detail.errors.any? %>
+                  <div id="error_explanation">
+                      <ul>
+                          <% @user_detail.errors.full_messages.each do |msg| %>
+                             <li><%= msg %></li>
+                          <% end %>
+                      </ul>
+                  </div>
+              <% end %>
+             <% end %>
+        <div class="forms_container_box"> <br/>
+
+                       <div class="titlebox_starts">
+                           <div class="titlebox_one"> <%= f.label :first_name %> </div>
+                           <div class="titlebox_two"> <%= f.text_field :first_name %> </div>
+                       </div>
+                       <div class="titlebox_starts">
+                           <div class="titlebox_one"> <%= f.label :last_name %> </div>
+                           <div class="titlebox_two"> <%= f.text_field :last_name %> </div>
+                       </div>
+                       <div class="titlebox_starts">
+                           <div class="titlebox_one"> <%= f.label :email %> </div>
+                           <div class="titlebox_two"> <%= f.email_field :email %> </div>
+                       </div>
+                       <div class="titlebox_starts">
+                           <div class="titlebox_one"> <%= f.label :password %></div>
+                           <div class="titlebox_two"> <%= f.password_field :password %> </div>
+                       </div>
+                       <div class="titlebox_starts">
+                           <div class="titlebox_one"> <%= f.label :password_confirmation %> </div>
+                           <div class="titlebox_two">  <%= f.password_field :password_confirmation %> </div>
+                       </div>
+                       <div class="titlebox_starts">
+                           <div class="titlebox_one"> User Type </div>
+                           <div class="titlebox_two">					       
+                              <%= select_tag :type, options_for_select(%w(Patient Nurse Staff)) %> 
+                           </div>
+                       </div>
+                       
+               <%= fields_for :user_detail do |user_detail| %>
+                    <div class="birth_titlebox_starts">
+                       <div class="birth_titlebox_one"> Date Of Birth </div>
+                       <div class="birth_titlebox_two"><%= datetime_select("user_detail", "date_of_birth", :start_year => 1995) %></div>
+                    </div>
+                    <div class="titlebox_starts">
+                        <div class="titlebox_one"> Ethnicity </div>
+                        <div class="titlebox_two"> <%= text_field_tag "user_detail[ethnicity]" %> </div>
+                    </div>
+               <% end %>
+               
+               <div class="titlebox_starts">
+                   <div class="titlebox_one"> <%= f.label :terms_and_conditions %> </div>
+                   <div class="titlebox_two">
+                      <%= f.check_box :terms_and_conditions %>
+                   </div>
+               </div>
+               
+         </div>

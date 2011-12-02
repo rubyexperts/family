@@ -40,9 +40,17 @@ a:active {
                     <div id="topNav">
                         <ul style="list-style:none;">
                           <li><%= link_to "Sign in", "/users/sign_in" %></li>
-                          <li><%= link_to "Sign up", "/users/sign_up" %></li>
+                          <li>
+                              <% if @current_site.nil? %>
+                                  <%= link_to "Sign up", "/users/sign_up" %>
+                              <% elsif @current_site.name == "admin" %>
+                                  <%= link_to "Create Client", "/users/sign_up" %>
+                              <% else %>
+                                  <%= link_to "Registration", "/sign_up_user" %>
+                              <% end %>
+                          </li>
                           <li><%= link_to "Forgot your password?", "/users/password/new" %></li>
-                          <li><%= link_to "Invitations", "/send_invitation" %></li>
+                          <li><%= link_to "Invitations", "/send_invitation" %></li>                       
                         </ul>
                     </div>  <!-- top navigation pannel end -->
               </div> <!-- main menu pannel end -->

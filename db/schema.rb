@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111122181201) do
+ActiveRecord::Schema.define(:version => 20111202044637) do
 
   create_table "appointments", :force => true do |t|
     t.integer  "doctor_id"
@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(:version => 20111122181201) do
     t.string   "emergency_contact_phone"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "ethnicity"
   end
 
   create_table "users", :force => true do |t|
@@ -131,6 +132,7 @@ ActiveRecord::Schema.define(:version => 20111122181201) do
     t.string   "company_name"
     t.integer  "master_id"
     t.integer  "site_id"
+    t.boolean  "terms_and_conditions"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

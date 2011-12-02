@@ -24,6 +24,12 @@ class UserMailer < ActionMailer::Base
     @email = email
     @type = type
     mail(:to => @email, :subject => "You are Invited as #{@type}")
-  end  
+  end
+  
+  def invitation_email(email, current_site)
+    @email = email
+    @current_site = current_site
+    mail(:to => @email, :subject => "You have a Invitation")
+  end 
   
 end

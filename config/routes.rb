@@ -23,6 +23,7 @@ Family::Application.routes.draw do
   resources :treatment_forms
   resources :invitations
   resources :clinics
+  #resources :registrations
  
   match "/users/sign_out" => "devise/sessions#destroy"
   match "/all_accounts" => "accounts#all_accounts"
@@ -32,18 +33,26 @@ Family::Application.routes.draw do
   match '/create_master_account' => 'users#create_master_account'
   match '/appointment_approve/:id' => 'appointments#appointment_approve', :as => :appointment_approve
   
- # match '/admin' => 'home#admin', :as => :admin
   match '/staff' => 'home#staff', :as => :staff
   match '/company' => 'home#company', :as => :company
   match '/download/:id' => 'uploads#download', :as => :download 
 
+  #Invitations Routes
   match '/send_invitation' => 'invitations#send_invitation'
-
+  match '/sending_invitation' => 'invitations#sending_invitation'
+  match '/creating_invitation' => 'invitations#creating_invitation'
+  
+  # Registering user Routes
+  match '/sign_up_user' => 'invitations#sign_up_user'
+  match '/create_user' => 'invitations#create_user'
+  
+  
   # Redirection after sign_up page
   namespace :user do
     root :to => "home#index"
   end
   
+  # Subdomain Admin Routes
   constraints(:subdomain => "admin") do
      root :to => "clinics#index"
      match '/' => 'clinics#index'
