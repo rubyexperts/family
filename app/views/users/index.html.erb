@@ -9,31 +9,39 @@
 
 <br /><br /><br />
 
-<table border="1" cellpadding="2" cellspacing="1">
-  <tr>
-    <th> Email</th>
-    <th>Name </th>
-    <th>Address</th>
-    <th>City</th>
-    <th>Country </th>
-    <th>Zipcode</th>
-    <th>Mobile No</th>
-  </tr>
+<% if @master_accounts.empty? %>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.email %></td>
-    <td><%= user.first_name + user.last_name if user.last_name %></td>
-    <td><%= user.address %></td>
-    <td><%= user.city %></td>
-    <td><%= user.country %></td>
-    <td><%= user.zipcode %></td>
-    <td><%= user.mobile_number %></td>
-    <td><%= link_to 'Show',"/users/#{user.id}" %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" class="delete" href="/users/<%= user.id %>">Destroy</a></td>
- </tr>
+    <p> There are no accounts for you </p>
+
+<% else %>
+
+     <table border="1" cellpadding="2" cellspacing="1">
+         <tr>
+            <th> Type </th>
+            <th> Email</th>
+            <th>Name </th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Country </th>
+            <th>Zipcode</th>
+            <th>Mobile No</th>
+         </tr>
+
+         <% @master_accounts.each do |user| %>
+             <tr>
+                <td><%= user.type %></td>
+                <td><%= user.email %></td>
+                <td><%= user.first_name + user.last_name if user.last_name %></td>
+                <td><%= user.address %></td>
+                <td><%= user.city %></td>
+                <td><%= user.country %></td>
+                <td><%= user.zipcode %></td>
+                <td><%= user.mobile_number %></td>
+                <td><%= link_to 'Show',"/users/#{user.id}" %></td>
+                <td><%= link_to 'Edit', edit_user_path(user) %></td>
+                <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" class="delete" href="/users/<%= user.id %>">Destroy</a></td>
+             </tr>
+        <% end %>
+     </table>
+
 <% end %>
-</table>
-
-

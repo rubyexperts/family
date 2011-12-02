@@ -7,19 +7,15 @@ class UsersController < ApplicationController
    layout 'default'
    
    def index
-      @users = @current_site.users.all
+      @master_accounts = @current_site.users.where('master_id = ?', current_user.id)
       @select = "user"
       @select ="admin"
       respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @users }
+        format.html # index.html.erb
+        format.xml  { render :xml => @master_accounts }
       end
    end
    
-   def new
-     @user = @current_site.users.new
-   end
-
    def show
      @user = @current_site.users.find(params[:id])
      respond_to do |format|
@@ -50,12 +46,18 @@ class UsersController < ApplicationController
   def destroy
     @user = @current_site.users.find(params[:id])
     @user.delete
-   respond_to do |format|
+    respond_to do |format|
       format.html { redirect_to'/users' }
       format.xml  { head :ok }
     end
   end
 
+  # Creating Master Account
+  
+   def new
+     @user = @current_site.users.new
+   end
+   
    def create_master_account
      @user = @current_site.users.new(params[:user])
      if @user.valid?
@@ -63,9 +65,10 @@ class UsersController < ApplicationController
         @user.save
         redirect_to '/doctors'
      else
-       render :new
+        render :new
      end
    end
+   
    
    private
    
