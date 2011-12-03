@@ -3,16 +3,22 @@ class InvitationsController < ApplicationController
    before_filter :authenticate_user!, :only => [:new, :sending_invitation, :creating_invitation]
    skip_before_filter :authenticate_user!, :only => [:send_invitation, :sign_up_user, :create_user]
   
+   # This is from Admin Layout
    def new
      render :layout => 'admin'
    end
+   
+   # This is from Login Page irrelevant to domain & Subdomain
+   
+   def send_invitation
+     render :layout => 'login'
+   end
 
+   # This is common for creating invitation from login page & admin page
    def create
-     #user_type = params[:z]
      email_addresses = params[:q].split(',')
      email_addresses.each do |email|
-       #UserMailer.welcome_invitation(email, user_type).deliver
-       UserMailer.welcome_invitation(email).deliver
+       UserMailer.welcome_invitation(email, @current_site).deliver
      end
      if user_signed_in?
        flash[:notice] = "The Invitation has been sent. Please check the mail to see it"
@@ -21,14 +27,9 @@ class InvitationsController < ApplicationController
        flash[:notice] = "The Invitation has been sent. Please check the mail to see it"
        redirect_to "/users/sign_in", :layout => 'login' 
      end
-   end
+   end   
    
-   def send_invitation
-     render :layout => 'login'
-   end
-   
-   # With Login from Default Layout
-   
+   # With Login from Default Layout   
    def sending_invitation
       render :layout => 'default'
    end
@@ -36,7 +37,7 @@ class InvitationsController < ApplicationController
    def creating_invitation
      email_addresses = params[:q].split(',')
      email_addresses.each do |email|
-       UserMailer.invitation_email(email, @current_site).deliver
+       UserMailer.welcome_invitation(email, @current_site).deliver
      end
      redirect_to "/doctors", :layout => 'default'
    end

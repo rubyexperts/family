@@ -16,20 +16,11 @@ class UserMailer < ActionMailer::Base
       mail(:to => @patient.email, :subject => "Appointment Approved")
    end
   
-  def welcome_email(name)
-    mail(:to => name[:email], :subject=> "You are Invited as #{name[:type]}")
-  end
-  
-  def welcome_invitation(email)
-    @email = email
-    #@type = type
-    mail(:to => @email, :subject => "You have a Invitation")
-  end
-  
-  def invitation_email(email, current_site)
-    @email = email
-    @current_site = current_site
-    mail(:to => @email, :subject => "You have a Invitation")
-  end 
+   def welcome_invitation(email, current_site)
+     @email = email
+     @current_site = current_site
+     mail(:to => @email, :subject => "You have a Invitation")
+   end
+   
   
 end

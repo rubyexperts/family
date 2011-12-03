@@ -44,7 +44,7 @@ a:active {
                               <% if @current_site.nil? %>
                                   <%= link_to "Sign up", "/users/sign_up" %>
                               <% elsif @current_site.name == "admin" %>
-                                  <%= link_to "Create Client", "/users/sign_up" %>
+                                  <%= link_to "Sign Up", "/users/sign_up" %>
                               <% else %>
                                   <%= link_to "Registration", "/sign_up_user" %>
                               <% end %>
