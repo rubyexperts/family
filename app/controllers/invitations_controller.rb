@@ -59,7 +59,6 @@ class InvitationsController < ApplicationController
        elsif @user.last_step?
          @user_detail = UserDetail.new(params[:user_detail])
          if @user.valid? && @user_detail.valid?
-            raise params.inspect
             @user.site_id = @current_site
             @user.save
             @user_detail.user_id = @user
@@ -74,7 +73,7 @@ class InvitationsController < ApplicationController
        render 'sign_up_user', :layout => 'login'
      else
        session[:user_basic] = session[:user_params] = nil
-       flash[:notice] = "User saved."
+       flash[:notice] = "User has been saved. Please login to continue."
        redirect_to "/home", :layout => 'default'
      end
    end
