@@ -8,8 +8,7 @@ class InvitationsController < ApplicationController
      render :layout => 'admin'
    end
    
-   # This is from Login Page irrelevant to domain & Subdomain
-   
+   # This is from Login Page irrelevant to domain & Subdomain   
    def send_invitation
      render :layout => 'login'
    end
@@ -56,17 +55,18 @@ class InvitationsController < ApplicationController
      @user.current_step = session[:user_basic]
      if @user.valid?
        if params[:previous_button]
-         @user.previous_step
+         @user.get_previous_step(params[:type])
        elsif @user.last_step?
          @user_detail = UserDetail.new(params[:user_detail])
          if @user.valid? && @user_detail.valid?
+            raise params.inspect
+            @user.site_id = @current_site
             @user.save
             @user_detail.user_id = @user
             @user_detail.save
-            #raise params.inspect
          end
        else
-         @user.next_step
+         @user.get_next_step(params[:type])
        end
        session[:user_basic] = @user.current_step
      end
@@ -74,10 +74,11 @@ class InvitationsController < ApplicationController
        render 'sign_up_user', :layout => 'login'
      else
        session[:user_basic] = session[:user_params] = nil
-       flash[:notice] = "User saved."  
-       redirect_to "/", :layout => 'default'
+       flash[:notice] = "User saved."
+       redirect_to "/home", :layout => 'default'
      end
    end
+   
    
 
 end

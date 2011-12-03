@@ -22,9 +22,9 @@ class User < ActiveRecord::Base
   validates_presence_of :title, :if => :title
   validates_presence_of :address, :if => :address
   validates_presence_of :home_number, :if => :home_number
-  validates_acceptance_of :terms_and_conditions, :if => :terms_and_conditions
-  
   validates_uniqueness_of :email, :scope => :site_id, :case_sensitive => false 
+  
+  validates_acceptance_of :terms_and_conditions, :if => :terms_and_conditions  
   
   # authentication based on subdomain
   def self.find_for_authentication(conditions={})
@@ -76,8 +76,8 @@ class User < ActiveRecord::Base
   
   def current_step  
     @current_step || steps.first  
-  end  
-
+  end
+  
   def steps
     %w[user_basic user_details user_total]
   end 
@@ -96,7 +96,32 @@ class User < ActiveRecord::Base
   
   def last_step?  
     current_step == steps.last  
-  end 
+  end
+  
+  def firststep
+    self.current_step = "user_basic"
+  end
+  
+  def finalstep
+    self.current_step = "user_total"
+  end
+  
+  def get_previous_step(selected_type)
+    if selected_type == "Patient"  ||  selected_type == "Doctor"
+      self.previous_step
+    else
+      self.firststep
+    end
+  end
+  
+  def get_next_step(selected_type)
+    if selected_type == "Patient" ||  selected_type == "Doctor"
+     self.next_step
+    else
+     self.finalstep
+    end
+  end
+  
 
   
 end
