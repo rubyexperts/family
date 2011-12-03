@@ -1,13 +1,3 @@
-
-<% if @user.errors.any? %>
-     <div id="error_explanation">
-      <ul>
-         <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-         <% end %>
-      </ul>
-    </div>
-<% end %>
  
 <div class="edit_content_head"> 
     <div class="spacer5"></div>
@@ -59,7 +49,16 @@
                     </div>
                <% end %>
       <% end %>
-               <br/><br/>
-
-               
+      
+      <div class="titleareass_starts">
+               <div class="titleareass_one"> <%= f.label :terms_and_conditions %> </div>
+               <div class="titleareass_two">
+                  <%= f.check_box :terms_and_conditions %> &nbsp;&nbsp;
+                    By clicking on Terms and Conditions above you are agreeing to the 
+                    Terms of Service above and both the Program Policy and the Privacy Policy.
+               </div>
+      </div>
+      
 </div>
+
+
