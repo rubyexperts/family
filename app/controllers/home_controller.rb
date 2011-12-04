@@ -11,7 +11,7 @@ class HomeController < ApplicationController
       redirect_to "/doctors"
     elsif current_user.is_patient?
       redirect_to "/patients"
-    elsif current_user.is_staff?
+    elsif current_user.is_staff? || current_user.is_nurse? 
       redirect_to "/staff"
     elsif current_user.is_company?
       redirect_to "/company"

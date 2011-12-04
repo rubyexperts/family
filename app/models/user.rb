@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   validates_acceptance_of :terms_and_conditions, :if => :terms_and_conditions  
   
   # authentication based on subdomain
-  def self.find_for_authentication(conditions={})
+  def self.find_for_authentication(conditions={})  
      site = Site.where('name = ?', conditions[:subdomain]).first
      self.find_by_email_and_site_id(conditions[:email], site.id)
   end

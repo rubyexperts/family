@@ -2,6 +2,7 @@ class InvitationsController < ApplicationController
    
    before_filter :authenticate_user!, :only => [:new, :sending_invitation, :creating_invitation]
    skip_before_filter :authenticate_user!, :only => [:send_invitation, :sign_up_user, :create_user]
+   before_filter :find_site
   
    # This is from Admin Layout
    def new
@@ -59,7 +60,8 @@ class InvitationsController < ApplicationController
        elsif @user.last_step?
          @user_detail = UserDetail.new(params[:user_detail])
          if @user.valid? && @user_detail.valid?
-            @user.site_id = @current_site
+            @user.site_id = @current_site.id
+            @user.type = "#{params[:type]}"
             @user.save
             @user_detail.user_id = @user
             @user_detail.save
@@ -74,7 +76,7 @@ class InvitationsController < ApplicationController
      else
        session[:user_basic] = session[:user_params] = nil
        flash[:notice] = "User has been saved. Please login to continue."
-       redirect_to "/home", :layout => 'default'
+       redirect_to "/users/sign_in"
      end
    end
    

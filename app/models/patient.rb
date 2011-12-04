@@ -1,4 +1,5 @@
 class Patient < User
+
   acts_as_tree :foreign_key => "master_id"
   has_many :appointments
   has_many :patient_images

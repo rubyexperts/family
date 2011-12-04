@@ -46,7 +46,6 @@ Family::Application.routes.draw do
   match '/sign_up_user' => 'invitations#sign_up_user'
   match '/create_user' => 'invitations#create_user'
   
-  
   # Redirection after sign_up page
   namespace :user do
     root :to => "home#index"
