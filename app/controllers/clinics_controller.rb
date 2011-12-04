@@ -18,7 +18,7 @@ class ClinicsController < ApplicationController
 	  @site = Site.new(params[:site])
 	  if @site.valid? && @user.valid?
 		@site.save
-		@user.type = "Doctor"
+		@user.type = "Admin"
 		@user.site = @site
 	    @user.save
 		flash[:notice] = "The Account has been saved"

@@ -36,7 +36,7 @@ class Devise::RegistrationsController < ApplicationController
     @site = Site.new(params[:site])
     if @user.valid? && @site.valid?
        @site.save
-       @user.type = "Doctor"
+       @user.type = "Admin"
        @user.site = @site
        @user.save
        flash[:notice] = "You have signed up successfully. If enabled, a confirmation was sent to your e-mail."

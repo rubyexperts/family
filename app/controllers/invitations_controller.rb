@@ -60,7 +60,8 @@ class InvitationsController < ApplicationController
        elsif @user.last_step?
          @user_detail = UserDetail.new(params[:user_detail])
          if @user.valid? && @user_detail.valid?
-            @user.site_id = @current_site.id
+            @user.site_id = @current_site.id 
+            @user.master_id = @current_site.site_admin.id
             @user.type = "#{params[:type]}"
             @user.save
             @user_detail.user_id = @user

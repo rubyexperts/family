@@ -28,7 +28,7 @@ class DoctorsController < ApplicationController
     end
     
 	def doctor_patients
-      if current_user.is_doctor?
+      if current_user.type != "Patient"
 	    @select = "doctor_patients"
 	    @my_patients = DoctorPatient.where('doctor_id= ?', current_user.id)
       else

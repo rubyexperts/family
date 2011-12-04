@@ -16,6 +16,9 @@ class Site < ActiveRecord::Base
     def self.all_sites
       find(:all, :conditions => ['name != ?', "admin"], :order => :name)
     end
-   
+    
+    def site_admin
+      self.users.find(:first, :conditions => ['type = ?', "Admin"] )
+    end
 
 end

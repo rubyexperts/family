@@ -35,6 +35,7 @@ Family::Application.routes.draw do
   
   match '/staff' => 'home#staff', :as => :staff
   match '/company' => 'home#company', :as => :company
+  match '/admin' => 'home#admin', :as => :admin
   match '/download/:id' => 'uploads#download', :as => :download 
 
   #Invitations Routes

@@ -13,9 +13,7 @@ class User < ActiveRecord::Base
                   :title, :address, :home_number, :office_number, :mobile_number, :country, :city, :zipcode
   
   has_one :user_detail
-  has_many :uploads
-  
-  
+  has_many :uploads  
   
   validates_presence_of :first_name, :if => :first_name 
   validates_presence_of :last_name, :if => :last_name
