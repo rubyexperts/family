@@ -1,8 +1,8 @@
 class PatientsController < ApplicationController
 
    before_filter :authenticate_user!
-   layout 'default'
    before_filter :selected_tab, :except => [:patient_details]
+   layout 'default'
 
    def index
      #if current_user.is_complete?
