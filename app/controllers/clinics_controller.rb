@@ -21,6 +21,7 @@ class ClinicsController < ApplicationController
 		@user.type = "Doctor"
 		@user.site = @site
 	    @user.save
+		flash[:notice] = "The Account has been saved"
 		redirect_to "/clinics"
 	  else
 	    render :new

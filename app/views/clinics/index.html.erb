@@ -5,9 +5,16 @@
        All Accounts
     </strong>
     &nbsp; | &nbsp; <%= link_to 'New Account', new_clinic_path %> <br/><br/>
-</div>
+</div> <br/><br/>
 
-<%= flash[:notice] %>
+<%= flash[:notice] %>  <br/><br/>
+
+
+<% if @sites.empty? %>
+
+   <p> There are no Accounts right now </p>
+
+<% else %>
 
 <table border="1" cellpadding="2" cellspacing="1">
   <tr>
@@ -35,3 +42,5 @@
   </tr>
 <% end %>
 </table>
+
+<% end %>
