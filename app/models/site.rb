@@ -2,8 +2,8 @@ class Site < ActiveRecord::Base
 
     has_many :users
     
-    validates_presence_of :name, :message => "must be entered."  #, :if => :name, :message => "must be entered." 
-    validates_uniqueness_of :name, :message => "must be unique." #, :if => :name, :message => "must be unique." 
+    validates_presence_of :name, :message => "must be entered." 
+    validates_uniqueness_of :name, :message => "must be unique." #, :if => :name 
     validates_format_of :name, :with => /^[a-zA-Z0-9\-]*?$/, 
                         :message => 'accepts only letters, numbers and hyphens'
                         

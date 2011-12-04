@@ -6,10 +6,17 @@ class Devise::RegistrationsController < ApplicationController
   # GET /resource/sign_up
   def new
     @select = "sign_up"
-    resource = build_resource({})
-    @site = Site.new   # written by Eshwar
-    respond_with_navigational(resource){ render_with_scope :new }
+    session[:user_params] ||= {}
+    session[:site_params] ||= {}
+    @user = User.new(session[:user_params])
+    @site = Site.new(session[:site_params])   # written by Eshwar
+    @user.current_step = session[:user_basic] 
   end
+  
+   #  session[:user_params] ||= {}
+   #  @user = User.new(session[:user_params])
+  #   @user.current_step = session[:user_basic] 
+   #  render :layout => 'login'
 
   # POST /resource
  # def create
@@ -32,19 +39,34 @@ class Devise::RegistrationsController < ApplicationController
   # end
   
   def create
-    @user = User.new(params[:user])
-    @site = Site.new(params[:site])
-    if @user.valid? && @site.valid?
-       @site.save
-       @user.type = "Admin"
-       @user.site = @site
-       @user.save
-       flash[:notice] = "You have signed up successfully. If enabled, a confirmation was sent to your e-mail."
-       redirect_to("http://#{@site.name}.#{Configuration.site_link}")
-    else
-      render :action => :new
+    session[:user_params].deep_merge!(params[:user]) if params[:user]
+    session[:site_params].deep_merge!(params[:site]) if params[:site]
+    @user = User.new(session[:user_params])
+    @site = Site.new(session[:site_params])
+    @user.current_step = session[:user_basic]    
+    if @user.valid?
+      if params[:previous_button]
+        @user.get_previous_step("Doctor")
+      elsif @user.last_step?
+        if @user.valid? && @site.valid?
+          @site.save
+          @user.type = "Admin"
+          @user.site = @site
+          @user.save
+        end
+      else
+        @user.get_next_step("Doctor")
+      end
+      session[:user_basic] = @user.current_step
     end
-  end
+    if @user.new_record?
+      render 'new', :layout => 'login'
+    else
+      session[:user_basic] = session[:user_params] = nil
+      flash[:notice] = "You have signed up successfully. If enabled, a confirmation was sent to your e-mail."
+      redirect_to("http://#{@site.name}.#{Configuration.site_link}")
+    end
+  end 
 
   # GET /resource/edit
   def edit

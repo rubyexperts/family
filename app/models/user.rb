@@ -19,7 +19,8 @@ class User < ActiveRecord::Base
   validates_presence_of :last_name, :if => :last_name
   validates_presence_of :title, :if => :title
   validates_presence_of :address, :if => :address
-  validates_presence_of :home_number, :if => :home_number
+  validates_presence_of :home_number, :if => :home_number 
+  
   validates_uniqueness_of :email, :scope => :site_id, :case_sensitive => false 
   
   validates_acceptance_of :terms_and_conditions, :if => :terms_and_conditions  
@@ -73,7 +74,7 @@ class User < ActiveRecord::Base
   # Registration Process by stepwise 
   
   def current_step  
-    @current_step || steps.first  
+    @current_step || steps.first
   end
   
   def steps
