@@ -2,8 +2,8 @@ class UsersController < ApplicationController
 
    before_filter :authenticate_user!
    before_filter :find_site
-   before_filter :selected_tab, :only => [:create_master_account]
-   before_filter :select_tab, :except => [:create_master_account]
+   before_filter :find_admin_permission
+
    layout 'default'
    
    def index
@@ -67,17 +67,19 @@ class UsersController < ApplicationController
      else
         render :new
      end
-   end
-   
+   end   
    
    private
-   
-   def selected_tab
-     @select = "admin"
-   end
-   
-   def select_tab
-     @select = "My Account"
+  
+   def find_admin_permission
+     if current_user.is_admin?
+        has_access = true
+     else
+        has_access = false
+     end
+     if !has_access
+       redirect_to "/home"
+     end
    end
 
   

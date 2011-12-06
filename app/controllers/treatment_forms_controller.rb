@@ -2,7 +2,8 @@ class TreatmentFormsController < ApplicationController
 
     before_filter :authenticate_user!
 	before_filter :selected_tab
-	before_filter :check_doctor, :only => [:new, :create, :edit, :update, :destroy]
+	before_filter :check_doctor, :except => [:index, :show]
+	before_filter :check_if_not_admin
 	layout 'default'
 	
     def index
@@ -66,6 +67,17 @@ class TreatmentFormsController < ApplicationController
 	  end
 	  if !has_access
 	    redirect_to "/treatment_forms"
+	  end
+	end
+	
+    def check_if_not_admin
+	  if current_user.type != "Admin"
+		 has_access = true
+	  else
+		 has_access = false
+	  end
+	  if !has_access
+		redirect_to "/home"
 	  end
 	end
 

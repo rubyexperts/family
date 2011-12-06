@@ -32,7 +32,7 @@ a:active {
                          <div class="spacer3"></div>
                          <div class="email_boxtwo">
                            <div style="width:290px; height:22px; float:left; overflow:hidden;">
-                                <strong>Welcome! &nbsp;&nbsp;&nbsp;</strong> 
+                                <strong>Welcome! &nbsp; </strong> 
                                 <a href="mailto:<%= current_user.email %>" style="color:#13a907;">
                                    <%= current_user.email %>
                                 </a> &nbsp;&nbsp;
@@ -54,10 +54,16 @@ a:active {
                             <% if current_user.type != "Patient" %>
                                <li><a href="/doctor_patients">MyPatients</a></li>
                             <% end %>
-                            <li><a href="/users">Master Accounts</a></li>
+                            <% if current_user.is_admin? %>
+                              <li><a href="/users">Master Accounts</a></li>
+                            <% end %>
                             <li><a href="/patients/<%=current_user.id%>/edit">My Account</a></li>
-                            <li><a href="/treatment_forms">Forms</a></li>
-                            <li><a href="/sending_invitation">Invitations</a></li>
+                            <% if current_user.type != "Admin" %>
+                               <li><a href="/treatment_forms">Forms</a></li>
+                            <% end %>
+                            <% if current_user.is_admin? %>
+                               <li><a href="/sending_invitation">Invitations</a></li>
+                            <% end %>
                         </ul>
                     </div>  <!-- top navigation pannel end -->
               </div> <!-- main menu pannel end -->

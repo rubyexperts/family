@@ -1,8 +1,14 @@
 class InvitationsController < ApplicationController
    
-   before_filter :authenticate_user!, :only => [:new, :sending_invitation, :creating_invitation]
-   skip_before_filter :authenticate_user!, :only => [:send_invitation, :sign_up_user, :create_user]
    before_filter :find_site
+   
+   # With Authentication
+   before_filter :authenticate_user!, :only => [:new, :sending_invitation, :creating_invitation]
+   before_filter :find_admin_permission, :only => [:sending_invitation, :creating_invitation]
+   
+   # With Out Authentication
+   skip_before_filter :authenticate_user!, :only => [:send_invitation, :sign_up_user, :create_user]
+   
   
    # This is from Admin Layout
    def new
@@ -29,7 +35,7 @@ class InvitationsController < ApplicationController
      end
    end   
    
-   # With Login from Default Layout   
+   # With Login from Default Layout
    def sending_invitation
       render :layout => 'default'
    end
@@ -76,11 +82,23 @@ class InvitationsController < ApplicationController
        render 'sign_up_user', :layout => 'login'
      else
        session[:user_basic] = session[:user_params] = nil
-       flash[:notice] = "User has been saved. Please login to continue."
+       flash[:notice] = "You have completed your registration. Please login to continue."
        redirect_to "/users/sign_in"
      end
-   end
+   end   
    
+   private
+   
+   def find_admin_permission
+    if current_user.is_admin?
+      has_access = true
+    else
+      has_access = false
+    end
+    if !has_access
+      redirect_to "/home"
+    end
+   end
    
 
 end
